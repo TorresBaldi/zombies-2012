@@ -99,10 +99,6 @@ private
 	disparo_x;
 	disparo_y;
 	
-	// contador de la escopeta
-	i_esc;
-	
-	
 	// nuevas variables
 	permitido;		// indica si se solto la tecla desde el ultimo disparo
 	direccion;		// calcula la direccion a la que se tiene que disparar
@@ -221,6 +217,8 @@ begin
 				partida.municion[arma_actual]--;
 			end
 			
+			disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
+
 			// para la escopeta crea muchos
 			if ( arma_actual == escopeta )
 				disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
@@ -231,10 +229,6 @@ begin
 				disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
 				disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
 				disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
-				disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
-				disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
-			// para las demas, solo uno
-			else
 				disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
 			end
 		end
@@ -274,6 +268,7 @@ end
 /* -------------------------------------------------------------------------- */
 
 process disparo (x, y , tipo, direccion)
+
 public
 	daño;
 	p_x;
@@ -281,6 +276,7 @@ public
 	p_direccion;
 	p_tipo;
 end
+
 private
 	// generales
 	alcance;
@@ -296,8 +292,7 @@ private
 	objetivo;	// id del proceso con el que colisiona
 	
 end
-//175,36
-//10,515
+
 begin
 
 	file = fpg_armas;
