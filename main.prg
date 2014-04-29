@@ -37,7 +37,7 @@ include "prg/menu2.prg";		//las opciones del menu
 include "prg/juego.prg";		//las opciones del menu
 include "prg/carla.prg";		//personaje principal
 include "prg/armas.prg";
-include "prg/enemigos.prg";
+include "prg/enemigo_zombie.prg";
 include "prg/gui.prg";
 include "prg/items.prg";
 
