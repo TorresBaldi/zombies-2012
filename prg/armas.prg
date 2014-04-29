@@ -330,7 +330,9 @@ begin
 	end
 	
 	loop
-	
+		
+		frame;
+
 		// comportamientos de acuerdo al tipo de arma y la direccion
 		switch (tipo)
 		
@@ -447,9 +449,6 @@ begin
 			end
 			
 		end
-		
-
-		frame;
 		
 		// si el frame anterior toco algo, lo destruye
 		if ( destruido )
