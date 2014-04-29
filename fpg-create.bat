@@ -7,4 +7,4 @@ SET BINPATH=D:\bennu\bin\windows
 CLS
 
 :: 'Compilo' FPGs
-::%BINPATH%\bgdi.exe tools\fpg-tools\fpg-tools.dcb -c fpg-sources fpg 16
+%BINPATH%\bgdi.exe tools\fpg-tools\fpg-tools.dcb -c fpg-sources fpg 16
