@@ -3,6 +3,8 @@ LISTA DE CAMBIOS
 actual:
 - se muestra version en menu principal
 - se corrige posicion de gui
+- intro mas corta
+- disparos salen del arma
 
 
 1.2:
