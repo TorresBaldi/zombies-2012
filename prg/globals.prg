@@ -1,4 +1,57 @@
-global
+CONST
+
+	// niveles del juego
+	intro 		= 0;
+	menu 		= 1;
+	opciones 	= 2;
+	ayuda 		= 3;
+	creditos 	= 4;
+	pantalla1	= 5;
+	pantalla2	= 6;
+	pantalla3	= 7;
+	pantalla4	= 8;
+	pantalla5	= 9;
+	pantalla6	= 10;
+	gameover	= 11;
+
+	// estados del jugador
+	reposo = 0;
+	camina = 1;
+	saltoh = 2;
+	saltov = 3;
+	// variantes
+	ade	= 0;
+	arr	= 1;
+	aba	= 2;
+	// direccion
+	izq = 1;
+	der = 0;
+
+	// armas
+	pistola = 0;
+	uzi = 1;
+	minigun = 2;
+	escopeta = 3;
+	misil = 4;
+	cohete = 5;
+	lanzallamas = 6;
+	
+	const_granadas = 8;
+	
+	// tipos de ataque
+	tiro = 0;
+	fuego = 1;
+	poder = 2;
+
+	// direccion de disparo
+	arriba = 3;
+	derecha = 2;
+	abajo = 4;
+	izquierda = 1;
+
+END
+
+GLOBAL
 
 	// ID de FPGs
 	int fpg_intro;
@@ -95,4 +148,4 @@ global
 
 	end
 
-end
+END

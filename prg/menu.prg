@@ -14,7 +14,7 @@ begin
 	opcion(5);
 	
 	// muestra la version
-	write( 0, 318, 0, 2, "v" + version );
+	write( 0, 318, 0, 2, "v" + game_version );
 
 	// escribe el texto de ayuda
 	if ( os_id == OS_GP2X_WIZ)
