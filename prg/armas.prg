@@ -1,24 +1,3 @@
-global
-	
-	// arma seleccionada por el jugador
-	int arma_actual;
-	
-	// propiedades de las armas
-	struct armas[6]
-		int alcance;
-		int velocidad;
-		int daño;
-		int retraso_manual;
-		int retraso_auto;
-		int rafaga;
-		int autodisparo;
-		int tipo_ataque;
-	end
-
-end
-
-/* -------------------------------------------------------------------------- */
-
 function iniciar_armas();
 
 begin
@@ -26,7 +5,7 @@ begin
 	// propiedades de las armas
 	armas[pistola].alcance = 200;
 	armas[pistola].velocidad = 16;
-	armas[pistola].daño = 30;
+	armas[pistola].dano = 30;
 	armas[pistola].retraso_manual = 5;
 	armas[pistola].retraso_auto = 0;
 	armas[pistola].rafaga = 0;
@@ -35,7 +14,7 @@ begin
 	
 	armas[uzi].alcance = 220;
 	armas[uzi].velocidad = 18;
-	armas[uzi].daño = 20;
+	armas[uzi].dano = 20;
 	armas[uzi].retraso_manual = 3;
 	armas[uzi].retraso_auto = 3;
 	armas[uzi].rafaga = 2;
@@ -44,7 +23,7 @@ begin
 	
 	armas[minigun].alcance = 250;
 	armas[minigun].velocidad = 20;
-	armas[minigun].daño = 20;
+	armas[minigun].dano = 20;
 	armas[minigun].retraso_manual = 2;
 	armas[minigun].retraso_auto = 1;
 	armas[minigun].rafaga = 3;
@@ -53,7 +32,7 @@ begin
 	
 	armas[escopeta].alcance = 150;
 	armas[escopeta].velocidad = 15;
-	armas[escopeta].daño = 20;
+	armas[escopeta].dano = 20;
 	armas[escopeta].retraso_manual = 20;
 	armas[escopeta].retraso_auto = 0;
 	armas[escopeta].rafaga = 0;
@@ -62,7 +41,7 @@ begin
 	
 	armas[misil].alcance = 400;
 	armas[misil].velocidad = 15;
-	armas[misil].daño = 100;
+	armas[misil].dano = 100;
 	armas[misil].retraso_manual = 30;
 	armas[misil].retraso_auto = 0;
 	armas[misil].rafaga = 0;
@@ -71,7 +50,7 @@ begin
 	
 	armas[cohete].alcance = 400;
 	armas[cohete].velocidad = 15;
-	armas[cohete].daño = 50;
+	armas[cohete].dano = 50;
 	armas[cohete].retraso_manual = 6;
 	armas[cohete].retraso_auto = 0;
 	armas[cohete].rafaga = 3;
@@ -80,7 +59,7 @@ begin
 	
 	armas[lanzallamas].alcance = 150;
 	armas[lanzallamas].velocidad = 15;
-	armas[lanzallamas].daño = 3;
+	armas[lanzallamas].dano = 3;
 	armas[lanzallamas].retraso_manual = 1;
 	armas[lanzallamas].retraso_auto = 1;
 	armas[lanzallamas].rafaga = 5;
@@ -270,7 +249,7 @@ end
 process disparo (x, y , tipo, direccion)
 
 public
-	daño;
+	dano;
 	p_x;
 	p_y;
 	p_direccion;
@@ -300,7 +279,7 @@ begin
 	ctype = c_scroll;
 	cnumber = c_0;
 	
-	daño = armas[tipo].daño;
+	dano = armas[tipo].dano;
 	graph = tipo+1;
 	variacion = RAND(-4,4);
 	

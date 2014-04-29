@@ -77,33 +77,25 @@ global
 	//version del juego
 	string version = "1.2";
 	
-	// graficos
-	int fpg_intro;
-	int fpg_menu;
-	int fpg_menu2;
-	int fpg_sistema;
-	int fpg_volumen;
-	int fpg_nivel;
-	int fpg_carla;
-	int fpg_zombie;
-	int fpg_armas;
-	int fpg_gui;
-	int fpg_items;
-	
-	// sonidos
-	int menu_cursor;
-	int sfx_armas[6];
-	int sfx_granada;
-	int sfx_item;
-	
-	// musica
-	int bgm_intro;
-	string bgm_songs[3];
-	int bgm_id;
-	
 end
 
 /* -------------------------------------------------------------------------- */
+
+include "prg/jkeys.prg";		//controla la entrada por joystick
+include "prg/globals.prg";		//declaracion de variables
+include "prg/funciones.prg";	//funciones de movimientos y colisiones
+
+include "prg/volumen.prg";		//controla el volumen del juego
+include "prg/niveles.prg";		//contrla el nivel que se ejecuta
+include "prg/intro.prg";		//intro del juego
+include "prg/menu.prg";			//controlador del menu principal
+include "prg/menu2.prg";		//las opciones del menu
+include "prg/juego.prg";		//las opciones del menu
+include "prg/carla.prg";		//personaje principal
+include "prg/armas.prg";
+include "prg/enemigos.prg";
+include "prg/gui.prg";
+include "prg/items.prg";
 
 begin
 
@@ -149,17 +141,3 @@ begin
 end
 
 /* -------------------------------------------------------------------------- */
-
-include "prg/jkeys.prg";		//controla la entrada por joystick
-include "prg/volumen.prg";		//controla el volumen del juego
-include "prg/niveles.prg";		//contrla el nivel que se ejecuta
-include "prg/intro.prg";		//intro del juego
-include "prg/menu.prg";			//controlador del menu principal
-include "prg/menu2.prg";		//las opciones del menu
-include "prg/juego.prg";		//las opciones del menu
-include "prg/carla.prg";		//personaje principal
-include "prg/armas.prg";
-include "prg/enemigos.prg";
-include "prg/funciones.prg";	//funciones de movimientos y colisiones
-include "prg/gui.prg";
-include "prg/items.prg";

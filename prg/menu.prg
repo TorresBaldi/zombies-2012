@@ -1,7 +1,3 @@
-global
-	menu_seleccion = 1;
-end
-
 process iniciar_menu()
 private
 	int permitido;

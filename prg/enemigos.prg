@@ -161,13 +161,13 @@ BEGIN
 			// detecta los impactos de bala
 			id_disparo = collision ( type disparo );
 			if ( id_disparo )
-				//crea sonido de daño
+				//crea sonido de dano
 			end
 			
 			while ( id_disparo )
 				// resta vida por cada impacto
-				salud = salud - id_disparo.daño;
-				partida.puntos += id_disparo.daño;
+				salud = salud - id_disparo.dano;
+				partida.puntos += id_disparo.dano;
 
 				// crea la explosion del cohete
 				//if ( id_disparo.p_tipo == misil or id_disparo.p_tipo == cohete )
@@ -683,7 +683,7 @@ begin
 			break;
 		end
 		
-		// daño a carla
+		// dano a carla
 		if ( collision ( type carla ) )
 			carla_hit = true;
 			break;

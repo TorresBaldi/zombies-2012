@@ -6,12 +6,6 @@ const
 
 end
 
-global
-
-	volumen = 64;
-
-end
-
 process control_volumen();
 
 private

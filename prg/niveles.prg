@@ -1,12 +1,3 @@
-global
-	// niveles del juego
-	int nivel = intro;
-	int nivel_cambio = true;
-	int nivel_cargado[15];
-
-end
-
-
 /* -------------------------------------------------------------------------- */
 
 function control_niveles();
