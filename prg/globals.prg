@@ -49,6 +49,12 @@ CONST
 	abajo = 4;
 	izquierda = 1;
 
+	//estados del zombie
+	patrullando = 0;
+	acercandose = 1;
+	atacando_lejos = 2;
+	atacando_cerca = 3;
+	
 END
 
 GLOBAL

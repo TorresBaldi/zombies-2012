@@ -1,15 +1,3 @@
-const
-	
-	//estados del zombie
-	patrullando = 0;
-	acercandose = 1;
-	atacando_lejos = 2;
-	atacando_cerca = 3;
-	
-end
-
-/* -------------------------------------------------------------------------- */
-
 process controlar_zombies()
 // crea los zombies hasta que llegue a un cierto numero de muertes
 private
