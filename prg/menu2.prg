@@ -1,19 +1,3 @@
-process iniciar_menu_opciones()
-
-begin
-
-	put_screen(fpg_system, 31);
-	
-	loop
-		if ( jkeys_state[_JKEY_MENU] )
-			nivel_cambio = true;
-			nivel = menu;
-			break;
-		end
-		frame;
-	end
-
-end
 process iniciar_menu_ayuda()
 
 begin

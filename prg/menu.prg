@@ -1,8 +1,13 @@
 process iniciar_menu()
+
 private
 	int permitido;
 	int id_aviso_cargando;
+
+	int menu_opciones_inicial = 1;
+	int menu_opciones_total = 6;
 end
+
 begin
 
 	put_screen (fpg_system,1);
@@ -12,6 +17,7 @@ begin
 	opcion(3);
 	opcion(4);
 	opcion(5);
+	opcion(6);
 	
 	// muestra la version
 	write( 0, 318, 0, 2, "v" + game_version );
@@ -31,14 +37,14 @@ begin
 			
 			menu_seleccion--;
 			
-			if (menu_seleccion < 1) menu_seleccion = 1; end
+			if (menu_seleccion < menu_opciones_inicial) menu_seleccion = menu_opciones_inicial; end
 		end
 		if ( jkeys_state[_JKEY_DOWN] and permitido > 5);
 			permitido = 0;
 			
 			menu_seleccion++;
 			
-			if (menu_seleccion > 5) menu_seleccion = 5; end
+			if (menu_seleccion > menu_opciones_total) menu_seleccion = menu_opciones_total; end
 		end
 		permitido++;
 		
@@ -62,22 +68,29 @@ begin
 					opcion_cargar_juego();	// juego.prg
 				end
 /* -------------------------------------------------------------------------- */
-				// "help"
+				// "options"
 				case 3:
+					nivel_cambio = true;
+					nivel = opciones;
+					
+				end
+/* -------------------------------------------------------------------------- */
+				// "help"
+				case 4:
 					nivel_cambio = true;
 					nivel = ayuda;
 					
 				end
 /* -------------------------------------------------------------------------- */
 				// "credits"
-				case 4:
+				case 5:
 					nivel_cambio = true;
 					nivel = creditos;
 					
 				end
 /* -------------------------------------------------------------------------- */
 				// "exit"
-				case 5:
+				case 6:
 					exit();
 				end
 			end

@@ -25,17 +25,18 @@ end
 
 /* -------------------------------------------------------------------------- */
 
-include "prg/jkeys.prg";		//controla la entrada por joystick
-include "prg/globals.prg";		//declaracion de variables
-include "prg/funciones.prg";	//funciones de movimientos y colisiones
+include "prg/jkeys.prg";			//controla la entrada por joystick
+include "prg/globals.prg";			//declaracion de variables
+include "prg/funciones.prg";		//funciones de movimientos y colisiones
 
-include "prg/volumen.prg";		//controla el volumen del juego
-include "prg/niveles.prg";		//contrla el nivel que se ejecuta
-include "prg/intro.prg";		//intro del juego
-include "prg/menu.prg";			//controlador del menu principal
-include "prg/menu2.prg";		//las opciones del menu
-include "prg/juego.prg";		//las opciones del menu
-include "prg/carla.prg";		//personaje principal
+include "prg/volumen.prg";			//controla el volumen del juego
+include "prg/niveles.prg";			//contrla el nivel que se ejecuta
+include "prg/intro.prg";			//intro del juego
+include "prg/menu.prg";				//controlador del menu principal
+include "prg/menu2.prg";			//las opciones del menu
+include "prg/menu_opciones.prg";	//menu de opciones
+include "prg/juego.prg";			//las opciones del menu
+include "prg/carla.prg";			//personaje principal
 include "prg/armas.prg";
 include "prg/enemigo_zombie.prg";
 include "prg/gui.prg";
@@ -62,9 +63,11 @@ begin
 		scale_resolution = 03200240;
 		set_mode(320, 240, 16, mode_window + mode_frameless);
 		*/
-
 		
 	end
+
+	// DEBUG, SALTO INTRO
+	nivel = menu;
 	
 	set_fps(30, 0);
 	//write_var(0, 0, 0, 0, fps);
