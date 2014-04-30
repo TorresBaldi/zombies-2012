@@ -1,5 +1,19 @@
 LISTA DE CAMBIOS
 
+pendiente:
+- menu de opciones
+	- modo pantalla completa / ventana (solo pc)
+	- resolucion / escalado (solo pc)
+	- calidad del juego
+	- volumen sonido
+	- volumen musica
+	- volumen general
+- slots de partidas
+- tabla de puntajes
+- sistema de rondas / oleadas / tiempo de supervivencia
+- scroll de texto (para mostrar ayuda en pie de pantalla y en cada opcion)
+- agregar gui a herramienta de centrar
+
 actual:
 - se muestra version en menu principal
 - se corrige posicion de gui
