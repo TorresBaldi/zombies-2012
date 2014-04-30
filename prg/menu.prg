@@ -5,7 +5,7 @@ private
 end
 begin
 
-	put_screen (fpg_menu,1);
+	put_screen (fpg_system,1);
 	
 	opcion(1);
 	opcion(2);
@@ -106,7 +106,7 @@ private
 	alpha_final;
 end
 begin
-	file = fpg_menu;
+	file = fpg_system;
 	graph = numero+1;
 	alpha = 127;
 	x = 160;
@@ -174,8 +174,8 @@ end
 begin
 	x = 2;
 	y = 2;
-	file = fpg_sistema;
-	graph = 3;
+	file = fpg_system;
+	graph = 23;
 	
 	loop
 	

@@ -71,7 +71,7 @@ begin
 	
 
 	//graficos "del sistema"
-	fpg_sistema = load_fpg("fpg/sist.fpg");
+	fpg_system = load_fpg("fpg/system.fpg");
 	bgm_intro = load_song ( "bgm/01_graveyard_boss_it.ogg" );
 
 	

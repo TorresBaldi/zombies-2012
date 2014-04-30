@@ -38,7 +38,6 @@ begin
 					descargar();
 					
 					// carga recursos actuales
-					fpg_menu = load_fpg ("fpg/menu.fpg");
 					
 					// avisa que se cargo
 					nivel_cargado[menu] = true;
@@ -62,10 +61,8 @@ begin
 				case opciones:
 					// descarga recursos anteriores
 					descargar();
-					
 
 					// carga recursos actuales
-					fpg_menu2 = load_fpg("fpg/menu2.fpg");
 					
 					// avisa que se cargo
 					nivel_cargado[opciones] = true;
@@ -84,7 +81,6 @@ begin
 					descargar();
 					
 					// carga recursos actuales
-					fpg_menu2 = load_fpg("fpg/menu2.fpg");
 					
 					// avisa que se cargo
 					nivel_cargado[ayuda] = true;
@@ -102,7 +98,6 @@ begin
 					descargar();
 					
 					// carga recursos actuales
-					fpg_menu2 = load_fpg("fpg/menu2.fpg");
 					
 					// avisa que se cargo
 					nivel_cargado[creditos] = true;
@@ -222,6 +217,7 @@ begin
 					descargar();
 					
 					// carga recursos actuales
+					//fpg_system = load_fpg ("fpg/system.fpg");
 					
 					// avisa que se cargo
 					nivel_cargado[gameover] = true;
@@ -262,7 +258,6 @@ begin
 
 	//menu
 	if ( nivel_cargado[menu] )
-		unload_fpg(fpg_menu);
 		nivel_cargado[menu] = false;
 	end
 
@@ -271,7 +266,6 @@ begin
 
 	//opciones
 	if ( nivel_cargado[opciones] )
-		unload_fpg(fpg_menu2);
 		nivel_cargado[opciones] = false;
 	end
 	
@@ -280,7 +274,6 @@ begin
 
 	//ayuda
 	if ( nivel_cargado[ayuda] )
-		unload_fpg(fpg_menu2);
 		nivel_cargado[opciones] = false;
 	end
 	
@@ -289,7 +282,6 @@ begin
 
 	//creditos
 	if ( nivel_cargado[creditos] )
-		unload_fpg(fpg_menu2);
 		nivel_cargado[opciones] = false;
 	end
 	
@@ -377,8 +369,8 @@ begin
 	x = 320;
 	y = 120;
 	z = -999;
-	file = fpg_sistema;
-	graph = 1;
+	file = fpg_system;
+	graph = 21;
 	loop
 		x+= 30;
 		

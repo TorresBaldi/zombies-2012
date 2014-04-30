@@ -54,16 +54,14 @@ CONST
 	acercandose = 1;
 	atacando_lejos = 2;
 	atacando_cerca = 3;
-	
+
 END
 
 GLOBAL
 
 	// ID de FPGs
 	int fpg_intro;
-	int fpg_menu;
-	int fpg_menu2;
-	int fpg_sistema;
+	int fpg_system;
 	int fpg_volumen;
 	int fpg_nivel;
 	int fpg_carla;

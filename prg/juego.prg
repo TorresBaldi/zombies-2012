@@ -253,8 +253,8 @@ end
 process menu_pausa();
 
 begin
-	file = fpg_sistema;
-	graph = 02;
+	file = fpg_system;
+	graph = 22;
 	x = 160;
 	y = 120;
 	loop
@@ -274,8 +274,8 @@ end
 
 begin
 
-	file = fpg_sistema;
-	graph = 10;
+	file = fpg_system;
+	graph = 20;
 	alpha = 0;
 
 	ctype = c_scroll;
