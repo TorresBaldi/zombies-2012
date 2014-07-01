@@ -23,10 +23,14 @@ begin
 	write( 0, 318, 0, 2, "v" + game_version );
 
 	// escribe el texto de ayuda
+	text_scrollhelp_start( "" );
+
 	if ( os_id == OS_GP2X_WIZ)
-		write ( 0, 160, 230, 4, "[UP] and [Down] navigate  -  [SELECT] confirm");
+		// write ( 0, 160, 230, 4, "[UP] and [Down] navigate  -  [SELECT] confirm");
+		text_scrollhelp_update ( "[UP] and [Down] navigate  -  [SELECT] confirm" );
 	else
-		write ( 0, 160, 230, 4, "[W] and [S] navigate  -  [ENTER] confirm");
+		// write ( 0, 160, 230, 4, "[W] and [S] navigate  -  [ENTER] confirm");
+		text_scrollhelp_update ( "[W] and [S] navigate  -  [ENTER] confirm" );
 	end
 	
 	loop
@@ -203,3 +207,60 @@ begin
 	
 end
 
+/* -------------------------------------------------------------------------- */
+
+process text_scrollhelp_start( string text )
+
+private
+
+	int string_changed;
+
+end
+
+begin
+
+	define_region( 1, 0, 227, 320, 9 );
+
+	text_scrollhelp_update( text );
+
+	loop
+
+		scroll[2].x0++;
+
+		frame;
+
+	end
+
+onexit
+
+	stop_scroll(2);
+
+end
+
+/* -------------------------------------------------------------------------- */
+
+function text_scrollhelp_update( string text)
+
+private 
+
+	map_id;
+
+end
+
+begin
+
+	map_id = write_in_map ( 0, "  " + text + "  ", 4);
+	start_scroll ( 2, 0, map_id, 0, 1, 3);
+
+end
+
+
+/* -------------------------------------------------------------------------- */
+
+function text_scrollhelp_stop()
+
+begin
+
+	signal( type text_scrollhelp_start, S_KILL );
+
+end

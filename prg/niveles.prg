@@ -258,6 +258,7 @@ begin
 
 	//menu
 	if ( nivel_cargado[menu] )
+		text_scrollhelp_stop();
 		nivel_cargado[menu] = false;
 	end
 
