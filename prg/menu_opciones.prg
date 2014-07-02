@@ -200,7 +200,6 @@ begin
 		if (!help_updated)
 			text_scrollhelp_update(txt_help);
 			help_updated = true;
-			say("updated to: " + txt_help );
 		end
 
 		frame;
