@@ -267,6 +267,7 @@ begin
 
 	//opciones
 	if ( nivel_cargado[opciones] )
+		text_scrollhelp_stop();
 		nivel_cargado[opciones] = false;
 	end
 	

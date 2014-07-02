@@ -55,6 +55,15 @@ CONST
 	atacando_lejos = 2;
 	atacando_cerca = 3;
 
+	//opciones
+	opc_fullscreen 	= 0;
+	opc_scale		= 1;
+	opc_quality		= 2;
+	opc_volmaster	= 3;
+	opc_volsfx		= 4;
+	opc_volbgm		= 5;
+	opc_last 		= 6;
+
 END
 
 GLOBAL
@@ -149,6 +158,15 @@ GLOBAL
 		int municion[6];
 		int granadas;
 		int granada_tipo;
+
+		//opciones del juego
+		struct option[5]
+			int min_value;
+			int max_value;
+			int value;
+			int show_on_pc;
+			int show_on_wiz;
+		end
 
 	end
 

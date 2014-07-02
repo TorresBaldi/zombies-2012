@@ -1,17 +1,9 @@
 LISTA DE CAMBIOS
 
 pendiente:
-- menu de opciones
-	- modo pantalla completa / ventana (solo pc)
-	- resolucion / escalado (solo pc)
-	- calidad del juego
-	- volumen sonido
-	- volumen musica
-	- volumen general
 - slots de partidas
 - tabla de puntajes
 - sistema de rondas / oleadas / tiempo de supervivencia
-- scroll de texto (para mostrar ayuda en pie de pantalla y en cada opcion)
 - agregar gui a herramienta de centrar
 
 actual:
@@ -19,6 +11,8 @@ actual:
 - se corrige posicion de gui
 - intro mas corta
 - disparos salen del arma
+- se agrega scroll de texto (basico)
+- se agrega menu (y sistema) de opciones
 
 
 1.2:
