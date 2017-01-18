@@ -1,12 +1,12 @@
-LISTA DE CAMBIOS
+# LISTA DE CAMBIOS
 
-pendiente:
+## cambios pendientes:
 - slots de partidas
 - tabla de puntajes
 - sistema de rondas / oleadas / tiempo de supervivencia
 - agregar gui a herramienta de centrar
 
-actual:
+## version actual:
 - se muestra version en menu principal
 - se corrige posicion de gui
 - intro mas corta
@@ -14,8 +14,10 @@ actual:
 - se agrega scroll de texto (basico)
 - se agrega menu (y sistema) de opciones
 
+## Releases
 
 1.2:
+
 - [Agregado]	se le agrega musica al menu al salir de la partida
 - [Agregado]	la musica de los niveles ahora es aleatoria
 - [Agregado]	se cambian todos los iconos de wiz y canoo
@@ -37,11 +39,13 @@ actual:
 - [Jugabilidad] acepto menu con B
 
 
-v1.1
--carla recibe daño solo de proyectiles de zombies
--movidos .prg a nuevo directorio
--fix en deteccion de durezas (se comprueba solo una vez)
+v1.1:
+
+- carla recibe daÃ±o solo de proyectiles de zombies
+- movidos .prg a nuevo directorio
+- fix en deteccion de durezas (se comprueba solo una vez)
 
 
-v1.0
--Release Inicial
+v1.0:
+
+- Release Inicial
