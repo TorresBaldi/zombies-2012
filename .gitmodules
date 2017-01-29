@@ -1,0 +1,3 @@
+[submodule "tools/bgd-fpgtool"]
+	path = tools/bgd-fpgtool
+	url = https://tehuel@github.com/TorresBaldi/bgd-fpgtool.git
