@@ -67,7 +67,7 @@ begin
 	put_screen(fpg_system, 31);
 
 	text_scrollhelp_start();
-	
+
 	loop
 
 		// vuelvo al menu principal

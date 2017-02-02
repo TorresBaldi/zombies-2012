@@ -35,9 +35,9 @@ CONST
 	misil = 4;
 	cohete = 5;
 	lanzallamas = 6;
-	
+
 	const_granadas = 8;
-	
+
 	// tipos de ataque
 	tiro = 0;
 	fuego = 1;
@@ -78,13 +78,13 @@ GLOBAL
 	int fpg_armas;
 	int fpg_gui;
 	int fpg_items;
-	
+
 	// ID de sonidos
 	int menu_cursor;
 	int sfx_armas[6];
 	int sfx_granada;
 	int sfx_item;
-	
+
 	// ID de musica
 	int bgm_intro;
 	string bgm_songs[3];
@@ -107,7 +107,7 @@ GLOBAL
 	carla_dir;
 	carla_posx;
 	carla_posy;
-	
+
 	carla_disparox;
 	carla_disparoy;
 	carla_auxx;
@@ -115,12 +115,12 @@ GLOBAL
 
 	int carla_disparando;
 	int carla_hit;	// si esta siendo golpeada
-	
+
 	carla_muriendo = false;	// si carla se murio, pero todavia no tiene que respawnear
 	carla_muerta = true;	// si carla tiene que respawnear
 
 	gravedad = 1;
-	
+
 	zombies_muertos;
 	zombies_necesarios;
 
@@ -128,10 +128,10 @@ GLOBAL
 	suelo1;
 	suelo2;
 	techo;
-	
+
 	// arma seleccionada por el jugador
 	int arma_actual;
-	
+
 	// propiedades de las armas
 	struct armas[6]
 		int alcance;

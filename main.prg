@@ -18,9 +18,9 @@ import "mod_wm";
 /* -------------------------------------------------------------------------- */
 
 global
-	
+
 	string game_version = "1.2";
-	
+
 end
 
 /* -------------------------------------------------------------------------- */
@@ -50,12 +50,12 @@ begin
 	if ( os_id == OS_GP2X_WIZ)
 
 		set_mode(320, 240, 16, mode_fullscreen);
-	
+
 	else
 
 		//scale_mode = SCALE_NOFILTER;
 		scale_resolution = 09600720;
-		set_title("Zombies 2012 (v" + game_version + ")");		
+		set_title("Zombies 2012 (v" + game_version + ")");
 		set_mode(320, 240, 16, mode_window);
 
 		/* screenshot mode */
@@ -63,26 +63,26 @@ begin
 		scale_resolution = 03200240;
 		set_mode(320, 240, 16, mode_window + mode_frameless);
 		*/
-		
+
 	end
 
 	// DEBUG, SALTO INTRO
 	nivel = menu;
-	
+
 	set_fps(30, 0);
 	//write_var(0, 0, 0, 0, fps);
-	
+
 
 	//graficos "del sistema"
 	fpg_system = load_fpg("fpg/system.fpg");
 	bgm_intro = load_song ( "bgm/01_graveyard_boss_it.ogg" );
 
-	
+
 	// procesos de inicializacion
 	iniciar_armas();
 	iniciar_opciones();
     asignar_teclas_pc();
-	
+
 	// procesos controladores
 	control_volumen();
     control_teclas();

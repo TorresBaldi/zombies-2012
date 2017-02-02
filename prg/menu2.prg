@@ -1,13 +1,13 @@
 process iniciar_menu_ayuda()
 
 begin
-	
+
 	if ( os_id == OS_GP2X_WIZ)
 		put_screen(fpg_system, 33);
 	else
 		put_screen(fpg_system, 32);
 	end
-	
+
 	loop
 		if ( jkeys_state[_JKEY_MENU] )
 			nivel_cambio = true;
