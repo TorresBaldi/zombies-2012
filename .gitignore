@@ -1,5 +1,5 @@
 // files
-main.dcb
+*.dcb
 savegame.dat
 releases/linux/
 releases/windows/
