@@ -13,6 +13,7 @@
 - disparos salen del arma
 - se agrega scroll de texto (basico)
 - se agrega menu (y sistema) de opciones
+- restyling de menu: textos y fondos
 
 ## Releases
 
