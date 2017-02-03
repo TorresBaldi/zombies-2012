@@ -5,6 +5,11 @@
 - tabla de puntajes
 - sistema de rondas / oleadas / tiempo de supervivencia
 - agregar gui a herramienta de centrar
+- optimizar deteccion de durezas (performance)
+- convertir musica a ogg (performance)
+- editar niveles para dar mas espacio arriba
+- corregir controles de menu para coincidir con esquema wiz
+- agregar controles para windows (cerrar ventana)
 
 ## version actual:
 - se muestra version en menu principal
