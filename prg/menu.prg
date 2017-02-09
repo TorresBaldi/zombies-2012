@@ -2,7 +2,6 @@ process iniciar_menu()
 
 private
 	int permitido;
-	int id_aviso_cargando;
 
 	int menu_opciones_inicial = 1;
 	int menu_opciones_total = 6;
@@ -56,7 +55,7 @@ begin
 		// reacciona de acuerdo a la seleccion
 		if ( jkeys_state[_JKEY_SELECT] or jkeys_state[_JKEY_B] )
 
-			id_aviso_cargando = aviso_cargando();
+			aviso_cargando();
 
 			frame;
 
