@@ -10,13 +10,14 @@ begin
 			nivel_cambio = false;
 			delete_text(all_text);
 
+			// descarga recursos anteriores
+			descargar();
+
 			switch ( nivel )
 
 /* -------------------------------------------------------------------------- */
 
 				case intro:
-					// descarga recursos anteriores
-					descargar();
 
 					// carga recursos actuales
 					fpg_intro = load_fpg ("fpg/intro.fpg");
@@ -34,9 +35,6 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case menu:
-					// descarga recursos anteriores
-					descargar();
-
 					// carga recursos actuales
 
 					// avisa que se cargo
@@ -59,9 +57,6 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case opciones:
-					// descarga recursos anteriores
-					descargar();
-
 					// carga recursos actuales
 
 					// avisa que se cargo
@@ -77,9 +72,6 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case ayuda:
-					// descarga recursos anteriores
-					descargar();
-
 					// carga recursos actuales
 
 					// avisa que se cargo
@@ -94,9 +86,6 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case creditos:
-					// descarga recursos anteriores
-					descargar();
-
 					// carga recursos actuales
 
 					// avisa que se cargo
@@ -111,9 +100,7 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case pantalla1:
-					// descarga recursos anteriores
-					descargar();
-
+					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa1.fpg");
 
 					// avisa que se cargo
@@ -128,9 +115,6 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case pantalla2:
-					// descarga recursos anteriores
-					descargar();
-
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa2.fpg");
 
@@ -145,9 +129,6 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case pantalla3:
-					// descarga recursos anteriores
-					descargar();
-
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa3.fpg");
 
@@ -162,9 +143,6 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case pantalla4:
-					// descarga recursos anteriores
-					descargar();
-
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa4.fpg");
 
@@ -179,9 +157,6 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case pantalla5:
-					// descarga recursos anteriores
-					descargar();
-
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa5.fpg");
 
@@ -196,9 +171,6 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case pantalla6:
-					// descarga recursos anteriores
-					descargar();
-
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa6.fpg");
 
@@ -213,9 +185,6 @@ begin
 /* -------------------------------------------------------------------------- */
 
 				case gameover:
-					// descarga recursos anteriores
-					descargar();
-
 					// carga recursos actuales
 					//fpg_system = load_fpg ("fpg/system.fpg");
 
@@ -223,8 +192,8 @@ begin
 					nivel_cargado[gameover] = true;
 
 					// inicia procesos
-					iniciar_menu_gameover();
 					efecto_fade();
+					iniciar_menu_gameover();
 				end
 
 			end
