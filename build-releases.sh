@@ -45,7 +45,7 @@ zip_game() {
 
 	cd "$4"
 	rm "../$FILENAME"
-	zip -r "../$FILENAME" "." --exclude "*.DS_Store"
+	zip -r "../$FILENAME" "." --exclude "*.DS_Store" "*.gitignore"
 	cd "$CURRENT"
 }
 
