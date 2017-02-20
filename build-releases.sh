@@ -1,5 +1,14 @@
 #!/bin/sh
 
+compile_assets() {
+
+	echo "-- compile_assets --"
+
+	bgdc tools/bgd-fpgtool/fpgtools.prg
+	bgdi tools/bgd-fpgtool/fpgtools.dcb -c fpg-sources fpg 16
+
+}
+
 copy_game_resources() {
 	# $1: path of "releases folder/platofrm name"
 
@@ -53,7 +62,7 @@ build_linux() {
 	compile_game $GAMENAME "$PATH_BIN/bin/bgdi" $PATH_PLATFORM
 
 	cp -r "$PATH_BIN/lib" "$PATH_PLATFORM/lib"
-	cp -a "releases/linux.sh" "$PATH_PLATFORM/$GAMENAME.sh"
+	cp -a "releases/releaase-files/linux.sh" "$PATH_PLATFORM/$GAMENAME.sh"
 
 	zip_game $GAMENAME $VERSION $PLATFORM $PATH_PLATFORM
 }
@@ -80,6 +89,8 @@ CURDIR=$(pwd)
 GAMENAME="zombies2012"
 VERSION="$1"
 PATH_RELEASES="$CURDIR/releases"
+
+compile_assets
 
 build_linux
 build_windows
