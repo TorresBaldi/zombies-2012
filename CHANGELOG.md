@@ -19,6 +19,7 @@
 - se agrega scroll de texto (basico)
 - se agrega menu (y sistema) de opciones
 - restyling de menu: textos y fondos
+- nuevo sistema de builds y releases usando github/travis
 
 ## Releases
 
