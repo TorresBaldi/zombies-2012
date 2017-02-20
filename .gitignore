@@ -5,3 +5,6 @@ tools/
 // files
 main.dcb
 savegame.dat
+releases/linux/
+releases/windows/
+releases/*.zip
