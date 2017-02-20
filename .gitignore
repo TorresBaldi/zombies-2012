@@ -4,3 +4,5 @@ savegame.dat
 releases/linux/
 releases/windows/
 releases/*.zip
+releases/canoo
+releases/wiz

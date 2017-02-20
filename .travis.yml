@@ -41,6 +41,8 @@ deploy:
   file:
     - "releases/zombies2012-$TRAVIS_TAG-windows.zip"
     - "releases/zombies2012-$TRAVIS_TAG-linux.zip"
+    - "releases/zombies2012-$TRAVIS_TAG-wiz.zip"
+    - "releases/zombies2012-$TRAVIS_TAG-canoo.zip"
   skip_cleanup: true
   on:
     tags: true
