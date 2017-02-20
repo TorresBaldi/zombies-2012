@@ -1,0 +1,46 @@
+language: c
+
+notifications:
+  email: false
+
+before_install:
+  - sudo apt-get update -qq
+
+  # 32bit compatibility
+  - sudo apt-get install -qq libc6:i386 libncurses5:i386 libstdc++6:i386
+
+  # BennuGD dependencies
+  - sudo apt-get install -qq zlib1g:i386 libssl1.0.0:i386 libsdl1.2debian:i386 libsdl-mixer1.2:i386
+
+install:
+  - wget http://www.bennugd.org/downloads/bgd-1.0.0-r335-linux.tar.gz
+  - tar -zxvf bgd-1.0.0-r335-linux.tar.gz
+  - chmod +x bin/*
+  - sudo mv bin/* /usr/local/bin/
+  - sudo mv lib/* /usr/local/lib/
+  - sudo ldconfig -v
+
+before_script:
+  - sudo chmod +x build.sh build-releases.sh
+
+  #start xvfb (X Virtual Framebuffer)
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+
+script:
+  - ./build.sh
+  - ls fpg
+
+before_deploy:
+  - ./build-releases.sh $TRAVIS_TAG
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file:
+    - "releases/zombies2012-$TRAVIS_TAG-windows.zip"
+    - "releases/zombies2012-$TRAVIS_TAG-linux.zip"
+  skip_cleanup: true
+  on:
+    tags: true

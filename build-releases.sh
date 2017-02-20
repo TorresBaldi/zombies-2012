@@ -56,7 +56,7 @@ build_linux() {
 
 	PLATFORM=linux
 	PATH_PLATFORM="$PATH_RELEASES/$PLATFORM"
-	PATH_BIN="$CURDIR/../bin/$PLATFORM"
+	PATH_BIN="$CURDIR/tools/bennugd-binaries/$PLATFORM"
 
 	copy_game_resources $PATH_PLATFORM
 	compile_game $GAMENAME "$PATH_BIN/bin/bgdi" $PATH_PLATFORM
@@ -73,7 +73,7 @@ build_windows() {
 
 	PLATFORM=windows
 	PATH_PLATFORM="$PATH_RELEASES/$PLATFORM"
-	PATH_BIN="$CURDIR/../bin/$PLATFORM"
+	PATH_BIN="$CURDIR/tools/bennugd-binaries/$PLATFORM"
 
 	copy_game_resources $PATH_PLATFORM
 	compile_game $GAMENAME "$PATH_BIN/bgdi.exe" $PATH_PLATFORM
