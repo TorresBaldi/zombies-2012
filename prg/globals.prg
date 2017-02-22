@@ -56,13 +56,13 @@ CONST
     atacando_cerca = 3;
 
     //opciones
-    opc_fullscreen  = 0;
-    opc_scale       = 1;
-    opc_quality     = 2;
-    opc_volmaster   = 3;
-    opc_volsfx      = 4;
-    opc_volbgm      = 5;
-    opc_last        = 5;
+    OPC_FULLSCREEN  = 0;
+    OPC_SCALE       = 1;
+    OPC_QUALITY     = 2;
+    OPC_VOLMASTER   = 3;
+    OPC_VOLSFX      = 4;
+    OPC_VOLBGM      = 5;
+    OPC_LAST        = 5;
 
 END
 

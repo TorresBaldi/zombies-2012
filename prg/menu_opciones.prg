@@ -2,41 +2,41 @@ function inicializar_opciones()
 
 begin
 
-	partida.opciones[opc_fullscreen].min_value = 0;
-	partida.opciones[opc_fullscreen].max_value = 1;
-	partida.opciones[opc_fullscreen].value = 0;
-	partida.opciones[opc_fullscreen].show_on_pc = 0;
-	partida.opciones[opc_fullscreen].show_on_wiz = 0;
+	partida.opciones[OPC_FULLSCREEN].min_value = 0;
+	partida.opciones[OPC_FULLSCREEN].max_value = 1;
+	partida.opciones[OPC_FULLSCREEN].value = 0;
+	partida.opciones[OPC_FULLSCREEN].show_on_pc = 0;
+	partida.opciones[OPC_FULLSCREEN].show_on_wiz = 0;
 
-	partida.opciones[opc_scale].min_value = 1;
-	partida.opciones[opc_scale].max_value = 3;
-	partida.opciones[opc_scale].value = 2;
-	partida.opciones[opc_scale].show_on_pc = 0;
-	partida.opciones[opc_scale].show_on_wiz = 0;
+	partida.opciones[OPC_SCALE].min_value = 1;
+	partida.opciones[OPC_SCALE].max_value = 3;
+	partida.opciones[OPC_SCALE].value = 2;
+	partida.opciones[OPC_SCALE].show_on_pc = 0;
+	partida.opciones[OPC_SCALE].show_on_wiz = 0;
 
-	partida.opciones[opc_quality].min_value = 1;
-	partida.opciones[opc_quality].max_value = 3;
-	partida.opciones[opc_quality].value = 3;
-	partida.opciones[opc_quality].show_on_pc = 1;
-	partida.opciones[opc_quality].show_on_wiz = 1;
+	partida.opciones[OPC_QUALITY].min_value = 1;
+	partida.opciones[OPC_QUALITY].max_value = 3;
+	partida.opciones[OPC_QUALITY].value = 3;
+	partida.opciones[OPC_QUALITY].show_on_pc = 1;
+	partida.opciones[OPC_QUALITY].show_on_wiz = 1;
 
-	partida.opciones[opc_volmaster].min_value = 0;
-	partida.opciones[opc_volmaster].max_value = 100;
-	partida.opciones[opc_volmaster].value = 100;
-	partida.opciones[opc_volmaster].show_on_pc = 0;
-	partida.opciones[opc_volmaster].show_on_wiz = 0;
+	partida.opciones[OPC_VOLMASTER].min_value = 0;
+	partida.opciones[OPC_VOLMASTER].max_value = 100;
+	partida.opciones[OPC_VOLMASTER].value = 100;
+	partida.opciones[OPC_VOLMASTER].show_on_pc = 0;
+	partida.opciones[OPC_VOLMASTER].show_on_wiz = 0;
 
-	partida.opciones[opc_volsfx].min_value = 0;
-	partida.opciones[opc_volsfx].max_value = 100;
-	partida.opciones[opc_volsfx].value = 50;
-	partida.opciones[opc_volsfx].show_on_pc = 1;
-	partida.opciones[opc_volsfx].show_on_wiz = 1;
+	partida.opciones[OPC_VOLSFX].min_value = 0;
+	partida.opciones[OPC_VOLSFX].max_value = 100;
+	partida.opciones[OPC_VOLSFX].value = 50;
+	partida.opciones[OPC_VOLSFX].show_on_pc = 1;
+	partida.opciones[OPC_VOLSFX].show_on_wiz = 1;
 
-	partida.opciones[opc_volbgm].min_value = 0;
-	partida.opciones[opc_volbgm].max_value = 100;
-	partida.opciones[opc_volbgm].value = 25;
-	partida.opciones[opc_volbgm].show_on_pc = 1;
-	partida.opciones[opc_volbgm].show_on_wiz = 1;
+	partida.opciones[OPC_VOLBGM].min_value = 0;
+	partida.opciones[OPC_VOLBGM].max_value = 100;
+	partida.opciones[OPC_VOLBGM].value = 25;
+	partida.opciones[OPC_VOLBGM].show_on_pc = 1;
+	partida.opciones[OPC_VOLBGM].show_on_wiz = 1;
 
 
 end
@@ -129,7 +129,7 @@ begin
 		switch ( opcion_actual )
 
 			// fullscreen
-			case opc_fullscreen:
+			case OPC_FULLSCREEN:
 
 				txt_opcion = "Fullscreen";
 				txt_help = "Shows the game in fullscreen mode.";
@@ -143,7 +143,7 @@ begin
 
 			end
 
-			case opc_scale:
+			case OPC_SCALE:
 
 				txt_opcion = "Scale Factor";
 				txt_help = "Screen scale factor, only in windowed mode.";
@@ -158,7 +158,7 @@ begin
 
 			end
 
-			case opc_quality:
+			case OPC_QUALITY:
 
 				txt_opcion = "Graphics Quality";
 				txt_help = "Graphics and explosions quality. Lower values can improve performance.";
@@ -173,21 +173,21 @@ begin
 
 			end
 
-			case opc_volmaster:
+			case OPC_VOLMASTER:
 				txt_opcion = "MASTER Volume";
 				txt_help = "General volume.";
 				txt_valor = valor_actual + " %";
 				key_lock2 = false;
 			end
 
-			case opc_volsfx:
+			case OPC_VOLSFX:
 				txt_opcion = "SFX Volume";
 				txt_help = "Sound effects volume.";
 				txt_valor = valor_actual + " %";
 				key_lock2 = false;
 			end
 
-			case opc_volbgm:
+			case OPC_VOLBGM:
 				txt_opcion = "BGM Volume";
 				txt_help = "Background Music volume.";
 				txt_valor = valor_actual + " %";
@@ -220,7 +220,7 @@ begin
 	loop
 
 		actual_option++;
-		if (actual_option > opc_last ) actual_option = 0; end
+		if (actual_option > OPC_LAST ) actual_option = 0; end
 
 		// busco la siguiente opcion disponible en pc o wiz
 		// TODO optimizar esto
@@ -245,7 +245,7 @@ begin
 
 	loop
 		actual_option--;
-		if (actual_option < 0 ) actual_option = opc_last; end
+		if (actual_option < 0 ) actual_option = OPC_LAST; end
 
 		if ( partida.opciones[actual_option].show_on_pc && os_id <= OS_MACOS )
 			break;
