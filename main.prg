@@ -47,7 +47,7 @@ include "prg/items.prg";
 begin
 
 	// inicializacion de video
-	if ( os_id == OS_GP2X_WIZ)
+	if ( os_id == OS_GP2X_WIZ || os_id == OS_CAANOO)
 
 		set_mode(320, 240, 16, mode_fullscreen);
 

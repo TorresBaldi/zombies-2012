@@ -224,7 +224,7 @@ begin
 
 	loop
 
-		scroll[2].x0 += 2;
+		scroll[2].x0 += 1;
 
 		frame;
 
