@@ -11,21 +11,21 @@ begin
 	partida.puntos = 0;
 	partida.nivel = NIVEL_PANTALLA_1;
 
-	partida.armas[pistola] 		= true;
-	partida.armas[uzi] 			= false;
-	partida.armas[minigun] 		= false;
-	partida.armas[escopeta] 	= false;
-	partida.armas[misil] 		= false;
-	partida.armas[cohete] 		= false;
-	partida.armas[lanzallamas] 	= false;
+	partida.armas[ARMA_PISTOLA] 	= true;
+	partida.armas[ARMA_UZI] 		= false;
+	partida.armas[ARMA_MINIGUN] 	= false;
+	partida.armas[ARMA_ESCOPETA] 	= false;
+	partida.armas[ARMA_MISIL] 		= false;
+	partida.armas[ARMA_COHETE] 		= false;
+	partida.armas[ARMA_LANZALLAMAS] = false;
 
-	partida.municion[pistola]		= 999;
-	partida.municion[uzi]			= 0;
-	partida.municion[minigun]		= 0;
-	partida.municion[escopeta]		= 0;
-	partida.municion[misil]			= 0;
-	partida.municion[cohete]		= 0;
-	partida.municion[lanzallamas]	= 0;
+	partida.municion[ARMA_PISTOLA]		= 999;
+	partida.municion[ARMA_UZI]			= 0;
+	partida.municion[ARMA_MINIGUN]		= 0;
+	partida.municion[ARMA_ESCOPETA]		= 0;
+	partida.municion[ARMA_MISIL]		= 0;
+	partida.municion[ARMA_COHETE]		= 0;
+	partida.municion[ARMA_LANZALLAMAS]	= 0;
 
 	partida.granadas = 5;
 
@@ -80,13 +80,13 @@ begin
 	fpg_gui = load_fpg("fpg/gui.fpg");
 	fpg_items = load_fpg("fpg/items.fpg");
 
-	sfx_armas[pistola] = load_wav("sfx/pistola.wav");
-	sfx_armas[uzi] = load_wav("sfx/uzi.wav");
-	sfx_armas[minigun] = load_wav("sfx/minigun.wav");
-	sfx_armas[escopeta] = load_wav("sfx/shotgun.wav");
-	sfx_armas[misil] = load_wav("sfx/misil.wav");
-	sfx_armas[cohete] = load_wav("sfx/cohete.wav");
-	sfx_armas[lanzallamas] = load_wav("sfx/llamas.wav");
+	sfx_armas[ARMA_PISTOLA] = load_wav("sfx/pistola.wav");
+	sfx_armas[ARMA_UZI] = load_wav("sfx/uzi.wav");
+	sfx_armas[ARMA_MINIGUN] = load_wav("sfx/minigun.wav");
+	sfx_armas[ARMA_ESCOPETA] = load_wav("sfx/shotgun.wav");
+	sfx_armas[ARMA_MISIL] = load_wav("sfx/misil.wav");
+	sfx_armas[ARMA_COHETE] = load_wav("sfx/cohete.wav");
+	sfx_armas[ARMA_LANZALLAMAS] = load_wav("sfx/llamas.wav");
 
 	sfx_granada = load_wav("sfx/granada.wav");
 	sfx_item = load_wav("sfx/pickup.wav");
@@ -235,13 +235,13 @@ onexit
 	unload_fpg (fpg_gui);
 	unload_fpg (fpg_items);
 
-	unload_wav(sfx_armas[pistola]);
-	unload_wav(sfx_armas[uzi]);
-	unload_wav(sfx_armas[minigun]);
-	unload_wav(sfx_armas[escopeta]);
-	unload_wav(sfx_armas[misil]);
-	unload_wav(sfx_armas[cohete]);
-	unload_wav(sfx_armas[lanzallamas]);
+	unload_wav(sfx_armas[ARMA_PISTOLA]);
+	unload_wav(sfx_armas[ARMA_UZI]);
+	unload_wav(sfx_armas[ARMA_MINIGUN]);
+	unload_wav(sfx_armas[ARMA_ESCOPETA]);
+	unload_wav(sfx_armas[ARMA_MISIL]);
+	unload_wav(sfx_armas[ARMA_COHETE]);
+	unload_wav(sfx_armas[ARMA_LANZALLAMAS]);
 
 	unload_wav(sfx_granada);
 

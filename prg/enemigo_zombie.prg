@@ -158,14 +158,14 @@ BEGIN
 				partida.puntos += id_disparo.dano;
 
 				// crea la explosion del cohete
-				//if ( id_disparo.p_tipo == misil or id_disparo.p_tipo == cohete )
+				//if ( id_disparo.p_tipo == ARMA_MISIL or id_disparo.p_tipo == ARMA_COHETE )
 				//	misil_explosion(id_disparo.p_x, id_disparo.p_y);
 				//end
 
 				// guarda el ultimo impacto recibido
 				ultimo_disparo = id_disparo.p_tipo;
 
-				if ( ultimo_disparo <> lanzallamas )
+				if ( ultimo_disparo <> ARMA_LANZALLAMAS )
 					// si no es el lanzallamas desruye el proyectil
 					signal(id_disparo, s_kill);
 				end
@@ -179,7 +179,7 @@ BEGIN
 			// detecta los impactos de explosiones
 			if ( collision ( type granada_explosion ) or collision ( type misil_explosion ) )
 				salud -= 100;
-				ultimo_disparo = misil;
+				ultimo_disparo = ARMA_MISIL;
 			end
 
 			// si no tiene salud lo mata
@@ -199,15 +199,15 @@ BEGIN
 
 				// de acuerdo al ultimo disparo recibido
 				switch (ultimo_disparo)
-					case escopeta:
+					case ARMA_ESCOPETA:
 						zombie_muerte_escopeta(x,y, direccion);
 					end
 
-					case misil, cohete:
+					case ARMA_MISIL, ARMA_COHETE:
 						zombie_muerte_explosion(x,y);
 					end
 
-					case lanzallamas:
+					case ARMA_LANZALLAMAS:
 						zombie_muerte_normal(x,y, direccion);
 					end
 

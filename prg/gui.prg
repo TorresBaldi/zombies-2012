@@ -35,7 +35,7 @@ begin
 			id_zombies = write(0, 315, 5, 5, "Zombies Left: " + zombies_restantes);
 		END
 
-		if ( arma_actual <> pistola )
+		if ( arma_actual <> ARMA_PISTOLA )
 			id_municion = write_var (0, 17, 38, 4,partida.municion[arma_actual]);
 		else
 			id_municion = write (0, 17, 38, 4,"INF");

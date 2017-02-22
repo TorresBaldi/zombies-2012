@@ -25,22 +25,22 @@ BEGIN
 	signal_action(S_KILL_TREE, S_IGN);
 
 	switch (tipo)
-		case uzi:
+		case ARMA_UZI:
 			municion = 90;
 		end
-		case minigun:
+		case ARMA_MINIGUN:
 			municion = 90;
 		end
-		case escopeta:
+		case ARMA_ESCOPETA:
 			municion = 16;
 		end
-		case misil:
+		case ARMA_MISIL:
 			municion = 5;
 		end
-		case cohete:
+		case ARMA_COHETE:
 			municion = 6;
 		end
-		case lanzallamas:
+		case ARMA_LANZALLAMAS:
 			municion = 100;
 		end
 	end
@@ -59,7 +59,7 @@ BEGIN
 		IF ( collision (type carla) )
 			play_wav (sfx_item,0);
 			partida.armas[tipo] = TRUE;
-			partida.municion[TIPO] += municion;
+			partida.municion[tipo] += municion;
 
 			BREAK;
 		END

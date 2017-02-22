@@ -28,13 +28,13 @@ CONST
     der = 0;
 
     // armas
-    pistola = 0;
-    uzi = 1;
-    minigun = 2;
-    escopeta = 3;
-    misil = 4;
-    cohete = 5;
-    lanzallamas = 6;
+    ARMA_PISTOLA        = 0;
+    ARMA_UZI            = 1;
+    ARMA_MINIGUN        = 2;
+    ARMA_ESCOPETA       = 3;
+    ARMA_MISIL          = 4;
+    ARMA_COHETE         = 5;
+    ARMA_LANZALLAMAS    = 6;
 
     const_granadas = 8;
 

@@ -3,68 +3,68 @@ function inicializar_armas();
 begin
 
 	// propiedades de las armas
-	armas[pistola].alcance = 200;
-	armas[pistola].velocidad = 16;
-	armas[pistola].dano = 30;
-	armas[pistola].retraso_manual = 5;
-	armas[pistola].retraso_auto = 0;
-	armas[pistola].rafaga = 0;
-	armas[pistola].autodisparo = false;
-	armas[pistola].tipo_ataque = tiro;
+	armas[ARMA_PISTOLA].alcance = 200;
+	armas[ARMA_PISTOLA].velocidad = 16;
+	armas[ARMA_PISTOLA].dano = 30;
+	armas[ARMA_PISTOLA].retraso_manual = 5;
+	armas[ARMA_PISTOLA].retraso_auto = 0;
+	armas[ARMA_PISTOLA].rafaga = 0;
+	armas[ARMA_PISTOLA].autodisparo = false;
+	armas[ARMA_PISTOLA].tipo_ataque = tiro;
 
-	armas[uzi].alcance = 220;
-	armas[uzi].velocidad = 18;
-	armas[uzi].dano = 20;
-	armas[uzi].retraso_manual = 3;
-	armas[uzi].retraso_auto = 3;
-	armas[uzi].rafaga = 2;
-	armas[uzi].autodisparo = true;
-	armas[uzi].tipo_ataque = tiro;
+	armas[ARMA_UZI].alcance = 220;
+	armas[ARMA_UZI].velocidad = 18;
+	armas[ARMA_UZI].dano = 20;
+	armas[ARMA_UZI].retraso_manual = 3;
+	armas[ARMA_UZI].retraso_auto = 3;
+	armas[ARMA_UZI].rafaga = 2;
+	armas[ARMA_UZI].autodisparo = true;
+	armas[ARMA_UZI].tipo_ataque = tiro;
 
-	armas[minigun].alcance = 250;
-	armas[minigun].velocidad = 20;
-	armas[minigun].dano = 20;
-	armas[minigun].retraso_manual = 2;
-	armas[minigun].retraso_auto = 1;
-	armas[minigun].rafaga = 3;
-	armas[minigun].autodisparo = true;
-	armas[minigun].tipo_ataque = tiro;
+	armas[ARMA_MINIGUN].alcance = 250;
+	armas[ARMA_MINIGUN].velocidad = 20;
+	armas[ARMA_MINIGUN].dano = 20;
+	armas[ARMA_MINIGUN].retraso_manual = 2;
+	armas[ARMA_MINIGUN].retraso_auto = 1;
+	armas[ARMA_MINIGUN].rafaga = 3;
+	armas[ARMA_MINIGUN].autodisparo = true;
+	armas[ARMA_MINIGUN].tipo_ataque = tiro;
 
-	armas[escopeta].alcance = 150;
-	armas[escopeta].velocidad = 15;
-	armas[escopeta].dano = 20;
-	armas[escopeta].retraso_manual = 20;
-	armas[escopeta].retraso_auto = 0;
-	armas[escopeta].rafaga = 0;
-	armas[escopeta].autodisparo = false;
-	armas[escopeta].tipo_ataque = tiro;
+	armas[ARMA_ESCOPETA].alcance = 150;
+	armas[ARMA_ESCOPETA].velocidad = 15;
+	armas[ARMA_ESCOPETA].dano = 20;
+	armas[ARMA_ESCOPETA].retraso_manual = 20;
+	armas[ARMA_ESCOPETA].retraso_auto = 0;
+	armas[ARMA_ESCOPETA].rafaga = 0;
+	armas[ARMA_ESCOPETA].autodisparo = false;
+	armas[ARMA_ESCOPETA].tipo_ataque = tiro;
 
-	armas[misil].alcance = 400;
-	armas[misil].velocidad = 15;
-	armas[misil].dano = 100;
-	armas[misil].retraso_manual = 30;
-	armas[misil].retraso_auto = 0;
-	armas[misil].rafaga = 0;
-	armas[misil].autodisparo = false;
-	armas[misil].tipo_ataque = tiro;
+	armas[ARMA_MISIL].alcance = 400;
+	armas[ARMA_MISIL].velocidad = 15;
+	armas[ARMA_MISIL].dano = 100;
+	armas[ARMA_MISIL].retraso_manual = 30;
+	armas[ARMA_MISIL].retraso_auto = 0;
+	armas[ARMA_MISIL].rafaga = 0;
+	armas[ARMA_MISIL].autodisparo = false;
+	armas[ARMA_MISIL].tipo_ataque = tiro;
 
-	armas[cohete].alcance = 400;
-	armas[cohete].velocidad = 15;
-	armas[cohete].dano = 50;
-	armas[cohete].retraso_manual = 6;
-	armas[cohete].retraso_auto = 0;
-	armas[cohete].rafaga = 3;
-	armas[cohete].autodisparo = false;
-	armas[cohete].tipo_ataque = tiro;
+	armas[ARMA_COHETE].alcance = 400;
+	armas[ARMA_COHETE].velocidad = 15;
+	armas[ARMA_COHETE].dano = 50;
+	armas[ARMA_COHETE].retraso_manual = 6;
+	armas[ARMA_COHETE].retraso_auto = 0;
+	armas[ARMA_COHETE].rafaga = 3;
+	armas[ARMA_COHETE].autodisparo = false;
+	armas[ARMA_COHETE].tipo_ataque = tiro;
 
-	armas[lanzallamas].alcance = 150;
-	armas[lanzallamas].velocidad = 15;
-	armas[lanzallamas].dano = 3;
-	armas[lanzallamas].retraso_manual = 1;
-	armas[lanzallamas].retraso_auto = 1;
-	armas[lanzallamas].rafaga = 5;
-	armas[lanzallamas].autodisparo = true;
-	armas[lanzallamas].tipo_ataque = tiro;
+	armas[ARMA_LANZALLAMAS].alcance = 150;
+	armas[ARMA_LANZALLAMAS].velocidad = 15;
+	armas[ARMA_LANZALLAMAS].dano = 3;
+	armas[ARMA_LANZALLAMAS].retraso_manual = 1;
+	armas[ARMA_LANZALLAMAS].retraso_auto = 1;
+	armas[ARMA_LANZALLAMAS].rafaga = 5;
+	armas[ARMA_LANZALLAMAS].autodisparo = true;
+	armas[ARMA_LANZALLAMAS].tipo_ataque = tiro;
 
 end
 
@@ -192,14 +192,14 @@ begin
 			play_wav(sfx_armas[arma_actual],0);
 
 			// descuenta la municion si no es pistola
-			if ( arma_actual <> pistola )
+			if ( arma_actual <> ARMA_PISTOLA )
 				partida.municion[arma_actual]--;
 			end
 
 			disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
 
 			// para la escopeta crea muchos
-			if ( arma_actual == escopeta )
+			if ( arma_actual == ARMA_ESCOPETA )
 				disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
 				disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
 				disparo(carla_posx + carla_disparox, carla_posy - carla_disparoy, arma_actual, direccion);
@@ -283,11 +283,11 @@ begin
 	graph = tipo+1;
 	variacion = RAND(-4,4);
 
-	if ( tipo == escopeta )
+	if ( tipo == ARMA_ESCOPETA )
 		variacion = rand(-15,15);
 	end
 
-	if ( tipo == lanzallamas )
+	if ( tipo == ARMA_LANZALLAMAS )
 		size = 20;
 	end
 
@@ -308,7 +308,7 @@ begin
 
 	// inicializacion especial de acuerdo al tipo de arma
 	switch ( tipo )
-		case cohete, misil:
+		case ARMA_COHETE, ARMA_MISIL:
 			velocidad_actual = 8;
 			aceleracion = -3;
 			variacion = rand(-6,6);
@@ -337,14 +337,14 @@ begin
 		switch (tipo)
 
 			// comportamiento general
-			case pistola, uzi, minigun, escopeta, lanzallamas:
+			case ARMA_PISTOLA, ARMA_UZI, ARMA_MINIGUN, ARMA_ESCOPETA, ARMA_LANZALLAMAS:
 
-				if ( tipo == escopeta )
+				if ( tipo == ARMA_ESCOPETA )
 					//caso especial escopeta
 					advance(armas[tipo].velocidad + rand(-8,8));
 					size -= 10;
 
-				elseif ( tipo == lanzallamas )
+				elseif ( tipo == ARMA_LANZALLAMAS )
 					// caso especial lanzallamas
 					size += 8;
 					angle += rand(-6000,6000);
@@ -362,7 +362,7 @@ begin
 
 			end
 
-			case cohete, misil:
+			case ARMA_COHETE, ARMA_MISIL:
 
 				// acelera
 				if ( velocidad_actual <= armas[tipo].velocidad)
@@ -444,7 +444,7 @@ begin
 			p_tipo = tipo;
 			// el zombie destruye el misil
 
-			if ( tipo == cohete or tipo == misil)
+			if ( tipo == ARMA_COHETE or tipo == ARMA_MISIL)
 				misil_explosion(x,y,direccion,tipo);
 			end
 
@@ -483,7 +483,7 @@ begin
 		end
 	end
 
-	if (tipo == misil )
+	if (tipo == ARMA_MISIL )
 		size = 150;
 	else
 		size = 100;
