@@ -260,13 +260,13 @@ BEGIN
 			//calcula el estado de acuerdo a la distancia
 			if ( distancia_carla > distancia_acercandose )
 				//si esta demasiado lejos continua con la patrulla
-				estado = patrullando;
+				estado = ESTADO_PATRULLANDO;
 			else
 				// si esta cerca, pregunta que tan cerca esta
 				if ( distancia_carla < distancia_atacando_lejos )
-					estado = atacando_lejos;
+					estado = ESTADO_ATACANDO_LEJOS;
 				else
-					estado = acercandose;
+					estado = ESTADO_ACERCANDOSE;
 				end
 			end
 
@@ -278,7 +278,7 @@ BEGIN
 
 			// COMPORTAMIENTO DE LOS ESTADOS
 			SWITCH ( estado )
-				case patrullando:
+				case ESTADO_PATRULLANDO:
 					//si no termino la patrulla
 					if ( rango_patrulla_hecho < rango_patrulla )
 						rango_patrulla_hecho += 2;
@@ -302,7 +302,7 @@ BEGIN
 					end
 				end
 
-				case acercandose:
+				case ESTADO_ACERCANDOSE:
 
 					if ( direccion_carla == derecha )
 						velocidad_x = 2;
@@ -314,7 +314,7 @@ BEGIN
 
 				end
 
-				case atacando_lejos:
+				case ESTADO_ATACANDO_LEJOS:
 
 					velocidad_x = 0;
 
@@ -329,7 +329,7 @@ BEGIN
 
 				end
 
-				case atacando_cerca:
+				case ESTADO_ATACANDO_CERCA:
 
 					velocidad_x = 0;
 
@@ -346,18 +346,18 @@ BEGIN
 			end
 
 			switch ( estado )
-				case acercandose, patrullando:
+				case ESTADO_ACERCANDOSE, ESTADO_PATRULLANDO:
 					if ( animacion_frame > 11 )
 						animacion_frame = 0;
 					end
 					graph = 10 + animacion_frame;
 				end
 
-				case atacando_cerca:
+				case ESTADO_ATACANDO_CERCA:
 					//repite constantemente la animacion de ataque
 				end
 
-				case atacando_lejos:
+				case ESTADO_ATACANDO_LEJOS:
 
 					if ( animacion_frame > 15 and atacando)
 						animacion_frame = 0;

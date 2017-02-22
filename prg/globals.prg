@@ -43,10 +43,10 @@ CONST
     izquierda = 1;
 
     //estados del zombie
-    patrullando = 0;
-    acercandose = 1;
-    atacando_lejos = 2;
-    atacando_cerca = 3;
+    ESTADO_PATRULLANDO      = 0;
+    ESTADO_ACERCANDOSE      = 1;
+    ESTADO_ATACANDO_LEJOS   = 2;
+    ESTADO_ATACANDO_CERCA   = 3;
 
     //opciones
     OPC_FULLSCREEN  = 0;
