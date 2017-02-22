@@ -36,13 +36,6 @@ CONST
     ARMA_COHETE         = 5;
     ARMA_LANZALLAMAS    = 6;
 
-    const_granadas = 8;
-
-    // tipos de ataque
-    tiro = 0;
-    fuego = 1;
-    poder = 2;
-
     // direccion de disparo
     arriba = 3;
     derecha = 2;
@@ -141,7 +134,6 @@ GLOBAL
         int retraso_auto;
         int rafaga;
         int autodisparo;
-        int tipo_ataque;
     end
 
     // todos los datos necesarios para guardar una partida

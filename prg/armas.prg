@@ -10,7 +10,6 @@ begin
 	armas[ARMA_PISTOLA].retraso_auto = 0;
 	armas[ARMA_PISTOLA].rafaga = 0;
 	armas[ARMA_PISTOLA].autodisparo = false;
-	armas[ARMA_PISTOLA].tipo_ataque = tiro;
 
 	armas[ARMA_UZI].alcance = 220;
 	armas[ARMA_UZI].velocidad = 18;
@@ -19,7 +18,6 @@ begin
 	armas[ARMA_UZI].retraso_auto = 3;
 	armas[ARMA_UZI].rafaga = 2;
 	armas[ARMA_UZI].autodisparo = true;
-	armas[ARMA_UZI].tipo_ataque = tiro;
 
 	armas[ARMA_MINIGUN].alcance = 250;
 	armas[ARMA_MINIGUN].velocidad = 20;
@@ -28,7 +26,6 @@ begin
 	armas[ARMA_MINIGUN].retraso_auto = 1;
 	armas[ARMA_MINIGUN].rafaga = 3;
 	armas[ARMA_MINIGUN].autodisparo = true;
-	armas[ARMA_MINIGUN].tipo_ataque = tiro;
 
 	armas[ARMA_ESCOPETA].alcance = 150;
 	armas[ARMA_ESCOPETA].velocidad = 15;
@@ -37,7 +34,6 @@ begin
 	armas[ARMA_ESCOPETA].retraso_auto = 0;
 	armas[ARMA_ESCOPETA].rafaga = 0;
 	armas[ARMA_ESCOPETA].autodisparo = false;
-	armas[ARMA_ESCOPETA].tipo_ataque = tiro;
 
 	armas[ARMA_MISIL].alcance = 400;
 	armas[ARMA_MISIL].velocidad = 15;
@@ -46,7 +42,6 @@ begin
 	armas[ARMA_MISIL].retraso_auto = 0;
 	armas[ARMA_MISIL].rafaga = 0;
 	armas[ARMA_MISIL].autodisparo = false;
-	armas[ARMA_MISIL].tipo_ataque = tiro;
 
 	armas[ARMA_COHETE].alcance = 400;
 	armas[ARMA_COHETE].velocidad = 15;
@@ -55,7 +50,6 @@ begin
 	armas[ARMA_COHETE].retraso_auto = 0;
 	armas[ARMA_COHETE].rafaga = 3;
 	armas[ARMA_COHETE].autodisparo = false;
-	armas[ARMA_COHETE].tipo_ataque = tiro;
 
 	armas[ARMA_LANZALLAMAS].alcance = 150;
 	armas[ARMA_LANZALLAMAS].velocidad = 15;
@@ -64,7 +58,6 @@ begin
 	armas[ARMA_LANZALLAMAS].retraso_auto = 1;
 	armas[ARMA_LANZALLAMAS].rafaga = 5;
 	armas[ARMA_LANZALLAMAS].autodisparo = true;
-	armas[ARMA_LANZALLAMAS].tipo_ataque = tiro;
 
 end
 
