@@ -1,4 +1,4 @@
-function iniciar_armas();
+function inicializar_armas();
 
 begin
 

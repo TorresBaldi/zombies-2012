@@ -79,8 +79,8 @@ begin
 
 
 	// procesos de inicializacion
-	iniciar_armas();
-	iniciar_opciones();
+	inicializar_armas();
+	inicializar_opciones();
     asignar_teclas_pc();
 
 	// procesos controladores

@@ -1,4 +1,4 @@
-function iniciar_opciones()
+function inicializar_opciones()
 
 begin
 
