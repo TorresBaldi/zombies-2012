@@ -62,7 +62,7 @@ CONST
 	opc_volmaster	= 3;
 	opc_volsfx		= 4;
 	opc_volbgm		= 5;
-	opc_last 		= 6;
+	opc_last 		= 5;
 
 END
 

@@ -5,13 +5,13 @@ begin
 	partida.option[opc_fullscreen].min_value = 0;
 	partida.option[opc_fullscreen].max_value = 1;
 	partida.option[opc_fullscreen].value = 0;
-	partida.option[opc_fullscreen].show_on_pc = 1;
+	partida.option[opc_fullscreen].show_on_pc = 0;
 	partida.option[opc_fullscreen].show_on_wiz = 0;
 
 	partida.option[opc_scale].min_value = 1;
 	partida.option[opc_scale].max_value = 3;
 	partida.option[opc_scale].value = 2;
-	partida.option[opc_scale].show_on_pc = 1;
+	partida.option[opc_scale].show_on_pc = 0;
 	partida.option[opc_scale].show_on_wiz = 0;
 
 	partida.option[opc_quality].min_value = 1;
@@ -23,8 +23,8 @@ begin
 	partida.option[opc_volmaster].min_value = 0;
 	partida.option[opc_volmaster].max_value = 100;
 	partida.option[opc_volmaster].value = 100;
-	partida.option[opc_volmaster].show_on_pc = 1;
-	partida.option[opc_volmaster].show_on_wiz = 1;
+	partida.option[opc_volmaster].show_on_pc = 0;
+	partida.option[opc_volmaster].show_on_wiz = 0;
 
 	partida.option[opc_volsfx].min_value = 0;
 	partida.option[opc_volsfx].max_value = 100;
@@ -67,6 +67,8 @@ begin
 	put(fpg_system, 31, 160, 120);
 
 	text_scrollhelp_start();
+
+	opcion_actual = next_option( opcion_actual );
 
 	loop
 
@@ -129,13 +131,13 @@ begin
 			// fullscreen
 			case opc_fullscreen:
 
-				txt_opcion = "Pantalla Completa";
-				txt_help = "Muestra el juego en pantalla completa";
+				txt_opcion = "Fullscreen";
+				txt_help = "Shows the game in fullscreen mode.";
 
 				if ( valor_actual )
-					txt_valor = "Activada";
+					txt_valor = "Enable";
 				else
-					txt_valor = "Desactivada";
+					txt_valor = "Disable";
 				end
 
 
@@ -143,8 +145,8 @@ begin
 
 			case opc_scale:
 
-				txt_opcion = "Escalado";
-				txt_help = "Escalado completo de pantalla";
+				txt_opcion = "Scale Factor";
+				txt_help = "Screen scale factor, only in windowed mode.";
 
 				if ( valor_actual == 1 )
 					txt_valor = "1X";
@@ -158,36 +160,36 @@ begin
 
 			case opc_quality:
 
-				txt_opcion = "Calidad Graficos";
-				txt_help = "Calidad de graficos y explosiones. Puede mejorar el rendimiento";
+				txt_opcion = "Graphics Quality";
+				txt_help = "Graphics and explosions quality. Lower values can improve performance.";
 
 				if ( valor_actual == 1 )
-					txt_valor = "Baja";
+					txt_valor = "Low";
 				elif( valor_actual == 2 )
-					txt_valor = "Media";
+					txt_valor = "Medium";
 				else
-					txt_valor = "Alta";
+					txt_valor = "High";
 				end
 
 			end
 
 			case opc_volmaster:
-				txt_opcion = "Volumen MASTER";
-				txt_help = "Volumen general";
+				txt_opcion = "MASTER Volume";
+				txt_help = "General volume.";
 				txt_valor = valor_actual + " %";
 				key_lock2 = false;
 			end
 
 			case opc_volsfx:
-				txt_opcion = "Volumen SFX";
-				txt_help = "Volumen sonidos efectos";
+				txt_opcion = "SFX Volume";
+				txt_help = "Sound effects volume.";
 				txt_valor = valor_actual + " %";
 				key_lock2 = false;
 			end
 
 			case opc_volbgm:
-				txt_opcion = "Volumen BGM";
-				txt_help = "Volumen musica";
+				txt_opcion = "BGM Volume";
+				txt_help = "Background Music volume.";
 				txt_valor = valor_actual + " %";
 				key_lock2 = false;
 			end
@@ -215,10 +217,22 @@ function next_option( int actual_option )
 
 begin
 
-	repeat
+	loop
+
 		actual_option++;
-		if (actual_option >= opc_last ) actual_option = 0; end
-	until ( partida.option[actual_option].show_on_pc )
+		if (actual_option > opc_last ) actual_option = 0; end
+
+		// busco la siguiente opcion disponible en pc o wiz
+		// TODO optimizar esto
+		if ( partida.option[actual_option].show_on_pc && os_id <= OS_MACOS )
+			break;
+		end
+
+		if ( partida.option[actual_option].show_on_wiz && os_id >= OS_GP2X_WIZ )
+			break;
+		end
+
+	end
 
 	return actual_option;
 
@@ -229,10 +243,19 @@ function prev_option( int actual_option )
 
 begin
 
-	repeat
+	loop
 		actual_option--;
-		if (actual_option < 0 ) actual_option = opc_last -1; end
-	until ( partida.option[actual_option].show_on_pc )
+		if (actual_option < 0 ) actual_option = opc_last; end
+
+		if ( partida.option[actual_option].show_on_pc && os_id <= OS_MACOS )
+			break;
+		end
+
+		if ( partida.option[actual_option].show_on_wiz && os_id >= OS_GP2X_WIZ )
+			break;
+		end
+
+	end
 
 	return actual_option;
 
