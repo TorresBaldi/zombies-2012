@@ -1,12 +1,14 @@
 #!/bin/sh
 
 # build fpg files
-bgdc tools/bgd-fpgtool/fpgtools.prg
-bgdi tools/bgd-fpgtool/fpgtools.dcb -c fpg-sources fpg 16
+# bgdc tools/bgd-fpgtool/fpgtools.prg
+# bgdi tools/bgd-fpgtool/fpgtools.dcb -c fpg-sources fpg 16
 
 
-# compile game
-bgdc "main.prg"
+# compile game in debug mode
+bgdc -g -D DEBUG "main.prg"
+
+# bgdi "main.dcb"
 
 
 # invert output status of bgdc

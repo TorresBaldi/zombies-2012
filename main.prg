@@ -58,19 +58,17 @@ begin
 		set_title("Zombies 2012 (v" + game_version + ")");
 		set_mode(320, 240, 16, mode_window);
 
-		/* screenshot mode */
-		/*
-		scale_resolution = 03200240;
-		set_mode(320, 240, 16, mode_window + mode_frameless);
-		*/
-
 	end
 
-	// DEBUG, SALTO INTRO
-	nivel = NIVEL_MENU;
-
 	set_fps(30, 0);
-	//write_var(0, 0, 0, 0, fps);
+
+
+	#ifdef DEBUG
+		// salto intro
+		nivel = NIVEL_MENU;
+		game_version = game_version + " DBG";
+		write_var(0, 0, 0, 0, fps);
+	#endif
 
 
 	//graficos "del sistema"
