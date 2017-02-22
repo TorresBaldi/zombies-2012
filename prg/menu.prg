@@ -9,7 +9,7 @@ end
 
 begin
 
-	put_screen (fpg_system,1);
+	put (fpg_system,1, 160, 120);
 
 	opcion(1);
 	opcion(2);

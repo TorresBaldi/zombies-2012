@@ -64,7 +64,7 @@ end
 
 begin
 
-	put_screen(fpg_system, 31);
+	put(fpg_system, 31, 160, 120);
 
 	text_scrollhelp_start();
 
