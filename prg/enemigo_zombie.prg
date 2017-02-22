@@ -12,22 +12,22 @@ end
 begin
 
 	switch ( nivel )
-		case pantalla1:
+		case NIVEL_PANTALLA_1:
 			tiempo_respawn = 100;
 		end
-		case pantalla2:
+		case NIVEL_PANTALLA_2:
 			tiempo_respawn = 90;
 		end
-		case pantalla3:
+		case NIVEL_PANTALLA_3:
 			tiempo_respawn = 80;
 		end
-		case pantalla4:
+		case NIVEL_PANTALLA_4:
 			tiempo_respawn = 70;
 		end
-		case pantalla5:
+		case NIVEL_PANTALLA_5:
 			tiempo_respawn = 60;
 		end
-		case pantalla6:
+		case NIVEL_PANTALLA_6:
 			tiempo_respawn = 40;
 		end
 	end

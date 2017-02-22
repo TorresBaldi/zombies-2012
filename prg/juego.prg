@@ -9,7 +9,7 @@ begin
 	partida.salud = 100;
 	partida.vidas = 4;
 	partida.puntos = 0;
-	partida.nivel = pantalla1;
+	partida.nivel = NIVEL_PANTALLA_1;
 
 	partida.armas[pistola] 		= true;
 	partida.armas[uzi] 			= false;
@@ -34,7 +34,7 @@ begin
 
 	// inicia el primer nivel
 	nivel_cambio = true;
-	nivel = pantalla1;
+	nivel = NIVEL_PANTALLA_1;
 
 end
 
@@ -104,7 +104,7 @@ begin
 
 	// inicio del nivel
 	switch ( nivel )
-		case pantalla1:
+		case NIVEL_PANTALLA_1:
 
 			// obtiene las durezas
 			techo = map_get_pixel(fpg_nivel,1,0,0);
@@ -121,7 +121,7 @@ begin
 
 		end
 
-		case pantalla2:
+		case NIVEL_PANTALLA_2:
 
 			// obtiene las durezas
 			techo = map_get_pixel(fpg_nivel,1,0,0);
@@ -137,13 +137,13 @@ begin
 			item_arma(975,170);
 		end
 
-		case pantalla3:
+		case NIVEL_PANTALLA_3:
 			suelo1 = map_get_pixel(fpg_nivel,1,95,215);
 			techo = map_get_pixel(fpg_nivel,1,10,65);
 			start_scroll(0, fpg_nivel, 2, 0, 0 ,0);
 		end
 
-		case pantalla4:
+		case NIVEL_PANTALLA_4:
 			suelo1 = map_get_pixel(fpg_nivel,1,215,170);
 			techo = map_get_pixel(fpg_nivel,1,20,220);
 			start_scroll(0, fpg_nivel, 2, 0, 0 ,0);
@@ -155,13 +155,13 @@ begin
 			item_arma(220,155);
 		end
 
-		case pantalla5:
+		case NIVEL_PANTALLA_5:
 			suelo1 = map_get_pixel(fpg_nivel,1,0,70);
 			techo = map_get_pixel(fpg_nivel,1,0,0);
 			start_scroll(0, fpg_nivel, 2, 0, 0 ,0);
 		end
 
-		case pantalla6:
+		case NIVEL_PANTALLA_6:
 			suelo1 = map_get_pixel(fpg_nivel,1,2,90);
 			techo = map_get_pixel(fpg_nivel,1,2,30);
 			start_scroll(0, fpg_nivel, 2, 0, 0 ,0);
@@ -181,7 +181,7 @@ begin
 		// si se apreta menu sale
 		if ( jkeys_state[_JKEY_MENU] )
 			nivel_cambio = true;
-			nivel = menu;
+			nivel = NIVEL_MENU;
 			signal(id, S_KILL_TREE);
 		end
 
@@ -217,7 +217,7 @@ begin
 				carla(carlax, carlay);
 			else
 				nivel_cambio = true;
-				nivel = gameover;
+				nivel = NIVEL_GAMEOVER;
 				signal(id,s_kill_tree);
 			end
 

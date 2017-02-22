@@ -2,41 +2,41 @@ function inicializar_opciones()
 
 begin
 
-	partida.option[opc_fullscreen].min_value = 0;
-	partida.option[opc_fullscreen].max_value = 1;
-	partida.option[opc_fullscreen].value = 0;
-	partida.option[opc_fullscreen].show_on_pc = 0;
-	partida.option[opc_fullscreen].show_on_wiz = 0;
+	partida.opciones[opc_fullscreen].min_value = 0;
+	partida.opciones[opc_fullscreen].max_value = 1;
+	partida.opciones[opc_fullscreen].value = 0;
+	partida.opciones[opc_fullscreen].show_on_pc = 0;
+	partida.opciones[opc_fullscreen].show_on_wiz = 0;
 
-	partida.option[opc_scale].min_value = 1;
-	partida.option[opc_scale].max_value = 3;
-	partida.option[opc_scale].value = 2;
-	partida.option[opc_scale].show_on_pc = 0;
-	partida.option[opc_scale].show_on_wiz = 0;
+	partida.opciones[opc_scale].min_value = 1;
+	partida.opciones[opc_scale].max_value = 3;
+	partida.opciones[opc_scale].value = 2;
+	partida.opciones[opc_scale].show_on_pc = 0;
+	partida.opciones[opc_scale].show_on_wiz = 0;
 
-	partida.option[opc_quality].min_value = 1;
-	partida.option[opc_quality].max_value = 3;
-	partida.option[opc_quality].value = 3;
-	partida.option[opc_quality].show_on_pc = 1;
-	partida.option[opc_quality].show_on_wiz = 1;
+	partida.opciones[opc_quality].min_value = 1;
+	partida.opciones[opc_quality].max_value = 3;
+	partida.opciones[opc_quality].value = 3;
+	partida.opciones[opc_quality].show_on_pc = 1;
+	partida.opciones[opc_quality].show_on_wiz = 1;
 
-	partida.option[opc_volmaster].min_value = 0;
-	partida.option[opc_volmaster].max_value = 100;
-	partida.option[opc_volmaster].value = 100;
-	partida.option[opc_volmaster].show_on_pc = 0;
-	partida.option[opc_volmaster].show_on_wiz = 0;
+	partida.opciones[opc_volmaster].min_value = 0;
+	partida.opciones[opc_volmaster].max_value = 100;
+	partida.opciones[opc_volmaster].value = 100;
+	partida.opciones[opc_volmaster].show_on_pc = 0;
+	partida.opciones[opc_volmaster].show_on_wiz = 0;
 
-	partida.option[opc_volsfx].min_value = 0;
-	partida.option[opc_volsfx].max_value = 100;
-	partida.option[opc_volsfx].value = 50;
-	partida.option[opc_volsfx].show_on_pc = 1;
-	partida.option[opc_volsfx].show_on_wiz = 1;
+	partida.opciones[opc_volsfx].min_value = 0;
+	partida.opciones[opc_volsfx].max_value = 100;
+	partida.opciones[opc_volsfx].value = 50;
+	partida.opciones[opc_volsfx].show_on_pc = 1;
+	partida.opciones[opc_volsfx].show_on_wiz = 1;
 
-	partida.option[opc_volbgm].min_value = 0;
-	partida.option[opc_volbgm].max_value = 100;
-	partida.option[opc_volbgm].value = 25;
-	partida.option[opc_volbgm].show_on_pc = 1;
-	partida.option[opc_volbgm].show_on_wiz = 1;
+	partida.opciones[opc_volbgm].min_value = 0;
+	partida.opciones[opc_volbgm].max_value = 100;
+	partida.opciones[opc_volbgm].value = 25;
+	partida.opciones[opc_volbgm].show_on_pc = 1;
+	partida.opciones[opc_volbgm].show_on_wiz = 1;
 
 
 end
@@ -75,7 +75,7 @@ begin
 		// vuelvo al menu principal
 		if ( jkeys_state[_JKEY_MENU] )
 			nivel_cambio = true;
-			nivel = menu;
+			nivel = NIVEL_MENU;
 			break;
 		end
 
@@ -86,7 +86,7 @@ begin
 			help_updated = false;
 
 			opcion_actual = prev_option( opcion_actual );
-			valor_actual = partida.option[opcion_actual].value;
+			valor_actual = partida.opciones[opcion_actual].value;
 
 		end
 
@@ -96,14 +96,14 @@ begin
 			help_updated = false;
 
 			opcion_actual = next_option( opcion_actual );
-			valor_actual = partida.option[opcion_actual].value;
+			valor_actual = partida.opciones[opcion_actual].value;
 
 		end
 
 		if ( jkeys_state[ _JKEY_LEFT ] and not key_lock2  )
 			key_lock2 = true;
 
-			if ( valor_actual > partida.option[opcion_actual].min_value )
+			if ( valor_actual > partida.opciones[opcion_actual].min_value )
 				valor_actual--;
 			end
 
@@ -112,7 +112,7 @@ begin
 		if ( jkeys_state[ _JKEY_RIGHT ] and not key_lock2  )
 			key_lock2 = true;
 
-			if ( valor_actual < partida.option[opcion_actual].max_value )
+			if ( valor_actual < partida.opciones[opcion_actual].max_value )
 				valor_actual++;
 			end
 
@@ -224,11 +224,11 @@ begin
 
 		// busco la siguiente opcion disponible en pc o wiz
 		// TODO optimizar esto
-		if ( partida.option[actual_option].show_on_pc && os_id <= OS_MACOS )
+		if ( partida.opciones[actual_option].show_on_pc && os_id <= OS_MACOS )
 			break;
 		end
 
-		if ( partida.option[actual_option].show_on_wiz && os_id >= OS_GP2X_WIZ )
+		if ( partida.opciones[actual_option].show_on_wiz && os_id >= OS_GP2X_WIZ )
 			break;
 		end
 
@@ -247,11 +247,11 @@ begin
 		actual_option--;
 		if (actual_option < 0 ) actual_option = opc_last; end
 
-		if ( partida.option[actual_option].show_on_pc && os_id <= OS_MACOS )
+		if ( partida.opciones[actual_option].show_on_pc && os_id <= OS_MACOS )
 			break;
 		end
 
-		if ( partida.option[actual_option].show_on_wiz && os_id >= OS_GP2X_WIZ )
+		if ( partida.opciones[actual_option].show_on_wiz && os_id >= OS_GP2X_WIZ )
 			break;
 		end
 

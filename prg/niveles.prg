@@ -17,13 +17,13 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case intro:
+				case NIVEL_INTRO:
 
 					// carga recursos actuales
 					fpg_intro = load_fpg ("fpg/intro.fpg");
 
 					// avisa que se cargo
-					nivel_cargado[intro] = true;
+					nivel_cargado[NIVEL_INTRO] = true;
 
 					// inicia procesos
 					play_song (bgm_intro, -1);
@@ -34,11 +34,11 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case menu:
+				case NIVEL_MENU:
 					// carga recursos actuales
 
 					// avisa que se cargo
-					nivel_cargado[menu] = true;
+					nivel_cargado[NIVEL_MENU] = true;
 
 					// inicia procesos
 					efecto_fade();
@@ -56,11 +56,11 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case opciones:
+				case NIVEL_OPCIONES:
 					// carga recursos actuales
 
 					// avisa que se cargo
-					nivel_cargado[opciones] = true;
+					nivel_cargado[NIVEL_OPCIONES] = true;
 
 					// inicia procesos
 					// muestra pantalla de opciones
@@ -71,11 +71,11 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case ayuda:
+				case NIVEL_AYUDA:
 					// carga recursos actuales
 
 					// avisa que se cargo
-					nivel_cargado[ayuda] = true;
+					nivel_cargado[NIVEL_AYUDA] = true;
 
 					// inicia procesos
 					efecto_fade();
@@ -85,11 +85,11 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case creditos:
+				case NIVEL_CREDITOS:
 					// carga recursos actuales
 
 					// avisa que se cargo
-					nivel_cargado[creditos] = true;
+					nivel_cargado[NIVEL_CREDITOS] = true;
 
 					// inicia procesos
 					efecto_fade();
@@ -99,12 +99,12 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case pantalla1:
+				case NIVEL_PANTALLA_1:
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa1.fpg");
 
 					// avisa que se cargo
-					nivel_cargado[pantalla1] = true;
+					nivel_cargado[NIVEL_PANTALLA_1] = true;
 
 					// inicia procesos
 					efecto_fade();
@@ -114,12 +114,12 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case pantalla2:
+				case NIVEL_PANTALLA_2:
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa2.fpg");
 
 					// avisa que se cargo
-					nivel_cargado[pantalla2] = true;
+					nivel_cargado[NIVEL_PANTALLA_2] = true;
 
 					// inicia procesos
 					efecto_fade();
@@ -128,12 +128,12 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case pantalla3:
+				case NIVEL_PANTALLA_3:
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa3.fpg");
 
 					// avisa que se cargo
-					nivel_cargado[pantalla3] = true;
+					nivel_cargado[NIVEL_PANTALLA_3] = true;
 
 					// inicia procesos
 					efecto_fade();
@@ -142,12 +142,12 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case pantalla4:
+				case NIVEL_PANTALLA_4:
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa4.fpg");
 
 					// avisa que se cargo
-					nivel_cargado[pantalla4] = true;
+					nivel_cargado[NIVEL_PANTALLA_4] = true;
 
 					// inicia procesos
 					efecto_fade();
@@ -156,12 +156,12 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case pantalla5:
+				case NIVEL_PANTALLA_5:
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa5.fpg");
 
 					// avisa que se cargo
-					nivel_cargado[pantalla5] = true;
+					nivel_cargado[NIVEL_PANTALLA_5] = true;
 
 					// inicia procesos
 					efecto_fade();
@@ -170,12 +170,12 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case pantalla6:
+				case NIVEL_PANTALLA_6:
 					// carga recursos actuales
 					fpg_nivel = load_fpg("fpg/mapa6.fpg");
 
 					// avisa que se cargo
-					nivel_cargado[pantalla6] = true;
+					nivel_cargado[NIVEL_PANTALLA_6] = true;
 
 					// inicia procesos
 					efecto_fade();
@@ -184,12 +184,12 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-				case gameover:
+				case NIVEL_GAMEOVER:
 					// carga recursos actuales
 					//fpg_system = load_fpg ("fpg/system.fpg");
 
 					// avisa que se cargo
-					nivel_cargado[gameover] = true;
+					nivel_cargado[NIVEL_GAMEOVER] = true;
 
 					// inicia procesos
 					efecto_fade();
@@ -216,66 +216,66 @@ begin
 
 /* -------------------------------------------------------------------------- */
 
-	//intro
-	if ( nivel_cargado[intro] )
+	// NIVEL_INTRO
+	if ( nivel_cargado[NIVEL_INTRO] )
 		unload_fpg(fpg_intro);
-		nivel_cargado[intro] = false;
+		nivel_cargado[NIVEL_INTRO] = false;
 	end
 
 
 /* -------------------------------------------------------------------------- */
 
 	//menu
-	if ( nivel_cargado[menu] )
+	if ( nivel_cargado[NIVEL_MENU] )
 		text_scrollhelp_stop();
-		nivel_cargado[menu] = false;
+		nivel_cargado[NIVEL_MENU] = false;
 	end
 
 
 /* -------------------------------------------------------------------------- */
 
 	//opciones
-	if ( nivel_cargado[opciones] )
+	if ( nivel_cargado[NIVEL_OPCIONES] )
 		text_scrollhelp_stop();
-		nivel_cargado[opciones] = false;
+		nivel_cargado[NIVEL_OPCIONES] = false;
 	end
 
 
 /* -------------------------------------------------------------------------- */
 
 	//ayuda
-	if ( nivel_cargado[ayuda] )
-		nivel_cargado[opciones] = false;
+	if ( nivel_cargado[NIVEL_AYUDA] )
+		nivel_cargado[NIVEL_AYUDA] = false;
 	end
 
 
 /* -------------------------------------------------------------------------- */
 
 	//creditos
-	if ( nivel_cargado[creditos] )
-		nivel_cargado[opciones] = false;
+	if ( nivel_cargado[NIVEL_CREDITOS] )
+		nivel_cargado[NIVEL_CREDITOS] = false;
 	end
 
 
 /* -------------------------------------------------------------------------- */
 
 	//pantalla 1
-	if ( nivel_cargado[pantalla1] )
+	if ( nivel_cargado[NIVEL_PANTALLA_1] )
 		unload_song ( bgm_id );
 		unload_fpg (fpg_nivel);
 		stop_scroll(0);
-		nivel_cargado[pantalla1] = false;
+		nivel_cargado[NIVEL_PANTALLA_1] = false;
 	end
 
 
 /* -------------------------------------------------------------------------- */
 
 	//pantalla 2
-	if ( nivel_cargado[pantalla2] )
+	if ( nivel_cargado[NIVEL_PANTALLA_2] )
 		unload_song ( bgm_id );
 		stop_scroll(0);
 		unload_fpg(fpg_nivel);
-		nivel_cargado[pantalla2] = false;
+		nivel_cargado[NIVEL_PANTALLA_2] = false;
 	end
 
 
@@ -283,11 +283,11 @@ begin
 /* -------------------------------------------------------------------------- */
 
 	//pantalla 3
-	if ( nivel_cargado[pantalla3] )
+	if ( nivel_cargado[NIVEL_PANTALLA_3] )
 		unload_song ( bgm_id );
 		stop_scroll(0);
 		unload_fpg(fpg_nivel);
-		nivel_cargado[pantalla3] = false;
+		nivel_cargado[NIVEL_PANTALLA_3] = false;
 	end
 
 
@@ -295,11 +295,11 @@ begin
 /* -------------------------------------------------------------------------- */
 
 	//pantalla 4
-	if ( nivel_cargado[pantalla4] )
+	if ( nivel_cargado[NIVEL_PANTALLA_4] )
 		unload_song ( bgm_id );
 		stop_scroll(0);
 		unload_fpg(fpg_nivel);
-		nivel_cargado[pantalla4] = false;
+		nivel_cargado[NIVEL_PANTALLA_4] = false;
 	end
 
 
@@ -307,11 +307,11 @@ begin
 /* -------------------------------------------------------------------------- */
 
 	//pantalla 5
-	if ( nivel_cargado[pantalla5] )
+	if ( nivel_cargado[NIVEL_PANTALLA_5] )
 		unload_song ( bgm_id );
 		stop_scroll(0);
 		unload_fpg(fpg_nivel);
-		nivel_cargado[pantalla5] = false;
+		nivel_cargado[NIVEL_PANTALLA_5] = false;
 	end
 
 
@@ -319,11 +319,11 @@ begin
 /* -------------------------------------------------------------------------- */
 
 	//pantalla 6
-	if ( nivel_cargado[pantalla6] )
+	if ( nivel_cargado[NIVEL_PANTALLA_6] )
 		unload_song ( bgm_id );
 		stop_scroll(0);
 		unload_fpg(fpg_nivel);
-		nivel_cargado[pantalla6] = false;
+		nivel_cargado[NIVEL_PANTALLA_6] = false;
 	end
 
 	clear_screen();

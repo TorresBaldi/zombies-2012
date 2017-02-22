@@ -74,21 +74,21 @@ begin
 				// "options"
 				case 3:
 					nivel_cambio = true;
-					nivel = opciones;
+					nivel = NIVEL_OPCIONES;
 
 				end
 /* -------------------------------------------------------------------------- */
 				// "help"
 				case 4:
 					nivel_cambio = true;
-					nivel = ayuda;
+					nivel = NIVEL_AYUDA;
 
 				end
 /* -------------------------------------------------------------------------- */
 				// "credits"
 				case 5:
 					nivel_cambio = true;
-					nivel = creditos;
+					nivel = NIVEL_CREDITOS;
 
 				end
 /* -------------------------------------------------------------------------- */
@@ -173,7 +173,7 @@ begin
 		end
 
 		// si se descarga el menu, termina el proceso
-		if ( nivel_cargado[menu] == false )
+		if ( nivel_cargado[NIVEL_MENU] == false )
 			break;
 		end
 

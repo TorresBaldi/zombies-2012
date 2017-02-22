@@ -11,7 +11,7 @@ begin
 	loop
 		if ( jkeys_state[_JKEY_MENU] )
 			nivel_cambio = true;
-			nivel = menu;
+			nivel = NIVEL_MENU;
 			break;
 		end
 		frame;
@@ -25,7 +25,7 @@ begin
 	loop
 		if ( jkeys_state[_JKEY_MENU] )
 			nivel_cambio = true;
-			nivel = menu;
+			nivel = NIVEL_MENU;
 			break;
 		end
 		frame;
@@ -39,7 +39,7 @@ begin
 	loop
 		if ( jkeys_state[_JKEY_MENU] )
 			nivel_cambio = true;
-			nivel = menu;
+			nivel = NIVEL_MENU;
 			break;
 		end
 		frame;

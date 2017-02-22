@@ -1,18 +1,18 @@
 CONST
 
 	// niveles del juego
-	intro 		= 0;
-	menu 		= 1;
-	opciones 	= 2;
-	ayuda 		= 3;
-	creditos 	= 4;
-	pantalla1	= 5;
-	pantalla2	= 6;
-	pantalla3	= 7;
-	pantalla4	= 8;
-	pantalla5	= 9;
-	pantalla6	= 10;
-	gameover	= 11;
+	NIVEL_INTRO 	= 0;
+	NIVEL_MENU 		= 1;
+	NIVEL_OPCIONES 	= 2;
+	NIVEL_AYUDA 	= 3;
+	NIVEL_CREDITOS 	= 4;
+	NIVEL_PANTALLA_1	= 5;
+	NIVEL_PANTALLA_2	= 6;
+	NIVEL_PANTALLA_3	= 7;
+	NIVEL_PANTALLA_4	= 8;
+	NIVEL_PANTALLA_5	= 9;
+	NIVEL_PANTALLA_6	= 10;
+	NIVEL_GAMEOVER	= 11;
 
 	// estados del jugador
 	reposo = 0;
@@ -91,7 +91,7 @@ GLOBAL
 	int bgm_id;
 
 	// niveles del juego
-	int nivel = intro;
+	int nivel = NIVEL_INTRO;
 	int nivel_cambio = true;
 	int nivel_cargado[15];
 
@@ -160,7 +160,7 @@ GLOBAL
 		int granada_tipo;
 
 		//opciones del juego
-		struct option[5]
+		struct opciones[5]
 			int min_value;
 			int max_value;
 			int value;

@@ -20,7 +20,7 @@ begin
 	end
 
 	nivel_cambio = true;
-	nivel = menu;
+	nivel = NIVEL_MENU;
 
 
 

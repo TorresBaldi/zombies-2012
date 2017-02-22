@@ -67,7 +67,7 @@ begin
 	end
 
 	// DEBUG, SALTO INTRO
-	nivel = menu;
+	nivel = NIVEL_MENU;
 
 	set_fps(30, 0);
 	//write_var(0, 0, 0, 0, fps);
