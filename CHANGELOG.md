@@ -1,49 +1,38 @@
 # LISTA DE CAMBIOS
 
-## cambios pendientes:
-- slots de partidas
-- tabla de puntajes
-- sistema de rondas / oleadas / tiempo de supervivencia
-- agregar gui a herramienta de centrar
-- optimizar deteccion de durezas (performance)
-- convertir musica a ogg (performance)
-- editar niveles para dar mas espacio arriba
-- corregir controles de menu para coincidir con esquema wiz
-- agregar controles para windows (cerrar ventana)
-
 ## version actual:
-- se muestra version en menu principal
-- se corrige posicion de gui
-- intro mas corta
-- disparos salen del arma
-- se agrega scroll de texto (basico)
-- se agrega menu (y sistema) de opciones
-- restyling de menu: textos y fondos
-- nuevo sistema de builds y releases usando github/travis
+- [add] se muestra version en menu principal
+- [add] se agrega scroll de texto (basico)
+- [add] se agrega menu (y sistema) de opciones
+- [fix] se corrige posicion de gui
+- [fix] intro mas corta
+- [fix] disparos salen del arma
+- [improvement] restyling de menu: textos y fondos
+- [improvement] nuevo sistema de builds y releases usando github/travis
 
 ## Releases
 
 1.2:
 
-- [Agregado]	se le agrega musica al menu al salir de la partida
-- [Agregado]	la musica de los niveles ahora es aleatoria
-- [Agregado]	se cambian todos los iconos de wiz y canoo
-- [Agregado]	agregado nuevo plano de scroll en nivel 1 (debia ser asi originalmente)
-- [Agregado]	muestro mensaje de cargando en menu.
-- [Agregado]	agrego nuevo readme al repositorio
-- [Corregido]	la partida se guarda solo al pasar de nivel (y no al iniciarlo)
-- [Corregido] 	contador de zombies restantes
-- [Corregido] 	Rehechas las durezas de nivel 2
-- [Corregido] 	Comprobacion de techo mas alta
-- [Corregido] 	corregida posicion de gui
-- [Corregido] 	se configura scroll de cambiador de niveles
-- [Corregido] 	se configura el scroll de todos los procesos
-- [Rendimiento] toda la musica convertida a OGG
-- [Rendimiento] acelerados tiempos de control de volumen
-- [Rendimiento] Reducida cantidad de partes de zombie en explosion
-- [Rendimiento] zombies desaparecen mas rapido.
-- [Jugabilidad] items desaparecen por tiempo.
-- [Jugabilidad] acepto menu con B
+- [add]	se le agrega musica al menu al salir de la partida
+- [add]	la musica de los niveles ahora es aleatoria
+- [add]	se cambian todos los iconos de wiz y canoo
+- [add]	agregado nuevo plano de scroll en nivel 1 (debia ser asi originalmente)
+- [add]	muestro mensaje de cargando en menu.
+- [add]	agrego nuevo readme al repositorio
+- [fix] la partida se guarda solo al pasar de nivel (y no al iniciarlo)
+- [fix] contador de zombies restantes
+- [fix] Rehechas las durezas de nivel 2
+- [fix] Comprobacion de techo mas alta
+- [fix] corregida posicion de gui
+- [fix] se configura scroll de cambiador de niveles
+- [fix] se configura el scroll de todos los procesos
+- [performance] toda la musica convertida a OGG
+- [performance] acelerados tiempos de control de volumen
+- [performance] Reducida cantidad de partes de zombie en explosion
+- [performance] zombies desaparecen mas rapido.
+- [gameplay] items desaparecen por tiempo.
+- [gameplay] acepto menu con B
 
 
 v1.1:
