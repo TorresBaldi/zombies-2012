@@ -15,17 +15,19 @@ CONST
     NIVEL_GAMEOVER      = 11;
 
     // estados del jugador
-    reposo = 0;
-    camina = 1;
-    saltoh = 2;
-    saltov = 3;
+    EST_REPOSO = 0;
+    EST_CAMINA = 1;
+    EST_SALTOH = 2;
+    EST_SALTOV = 3;
+
     // variantes
-    ade = 0;
-    arr = 1;
-    aba = 2;
+    VAR_ADE = 0;
+    VAR_ARR = 1;
+    VAR_ABA = 2;
+
     // direccion
-    izq = 1;
-    der = 0;
+    DIR_IZQ = 1;
+    DIR_DER = 0;
 
     // armas
     ARMA_PISTOLA        = 0;
@@ -37,10 +39,10 @@ CONST
     ARMA_LANZALLAMAS    = 6;
 
     // direccion de disparo
-    arriba = 3;
-    derecha = 2;
-    abajo = 4;
-    izquierda = 1;
+    DISPARO_ARRIBA      = 3;
+    DISPARO_DERECHA     = 2;
+    DISPARO_ABAJO       = 4;
+    DISPARO_IZQUIERDA   = 1;
 
     //estados del zombie
     ESTADO_PATRULLANDO      = 0;

@@ -88,7 +88,7 @@ PRIVATE
 	int distancia_carla;
 	int direccion_carla;
 
-	int direccion_patrulla = izquierda;
+	int direccion_patrulla = DISPARO_IZQUIERDA;
 	int rango_patrulla = 150;
 	int rango_patrulla_hecho = 0;
 
@@ -252,9 +252,9 @@ BEGIN
 
 			//calcula la direccion en la que esta carla
 			if ( carla_posx-x > 0 )
-				direccion_carla = derecha;
+				direccion_carla = DISPARO_DERECHA;
 			else
-				direccion_carla = izquierda;
+				direccion_carla = DISPARO_IZQUIERDA;
 			end
 
 			//calcula el estado de acuerdo a la distancia
@@ -273,8 +273,8 @@ BEGIN
 	/* -------------------------------------------------------------------------- */
 
 			// primero le da estos valores a la direccion, luego si es necesario, los cambia
-			if ( direccion_carla == derecha ) direccion = derecha;
-			else direccion = izquierda;	end
+			if ( direccion_carla == DISPARO_DERECHA ) direccion = DISPARO_DERECHA;
+			else direccion = DISPARO_IZQUIERDA;	end
 
 			// COMPORTAMIENTO DE LOS ESTADOS
 			SWITCH ( estado )
@@ -282,29 +282,29 @@ BEGIN
 					//si no termino la patrulla
 					if ( rango_patrulla_hecho < rango_patrulla )
 						rango_patrulla_hecho += 2;
-						if ( direccion_patrulla == izquierda )
+						if ( direccion_patrulla == DISPARO_IZQUIERDA )
 							velocidad_x = -2;
-							direccion = izquierda;
+							direccion = DISPARO_IZQUIERDA;
 						else
 							velocidad_x = 2;
-							direccion = derecha;
+							direccion = DISPARO_DERECHA;
 						end
 					//si ya termino la patrulla, invierte el sentido
 					else
 						rango_patrulla_hecho = 0;
-						if ( direccion_patrulla == izquierda )
-							direccion_patrulla = derecha;
-							direccion = derecha;
+						if ( direccion_patrulla == DISPARO_IZQUIERDA )
+							direccion_patrulla = DISPARO_DERECHA;
+							direccion = DISPARO_DERECHA;
 						else
-							direccion_patrulla = izquierda;
-							direccion = izquierda;
+							direccion_patrulla = DISPARO_IZQUIERDA;
+							direccion = DISPARO_IZQUIERDA;
 						end
 					end
 				end
 
 				case ESTADO_ACERCANDOSE:
 
-					if ( direccion_carla == derecha )
+					if ( direccion_carla == DISPARO_DERECHA )
 						velocidad_x = 2;
 					else
 						velocidad_x = -2;
@@ -376,7 +376,7 @@ BEGIN
 							disparo_finalx = disparo_centroposx - disparo_posx;
 							disparo_finaly = disparo_centroposy - disparo_posy;
 
-							if ( direccion == izquierda )
+							if ( direccion == DISPARO_IZQUIERDA )
 								disparo_finalx = disparo_finalx;
 							else
 								disparo_finalx = disparo_finalx * -1;
@@ -392,7 +392,7 @@ BEGIN
 				end
 			end
 
-			if ( direccion == izquierda )
+			if ( direccion == DISPARO_IZQUIERDA )
 				flags = 1;
 			else
 				flags = 0;
@@ -423,17 +423,17 @@ begin
 	flags = 1;
 	size = rand(100,200);
 	switch (direccion)
-		case derecha:
+		case DISPARO_DERECHA:
 			angle = 0;
 		end
-		case abajo:
+		case DISPARO_ABAJO:
 			angle = 90000;
 		end
-		case izquierda:
+		case DISPARO_IZQUIERDA:
 			angle = 180000;
 			flags = 3;
 		end
-		case arriba:
+		case DISPARO_ARRIBA:
 			angle = 270000;
 		end
 	end
@@ -462,7 +462,7 @@ begin
 	cnumber = c_0;
 	retraso_animacion = 0;
 	z = father.z+1;
-	if ( direccion == izquierda )
+	if ( direccion == DISPARO_IZQUIERDA )
 		flags = 1;
 	end
 	loop
@@ -500,7 +500,7 @@ begin
 	cnumber = c_0;
 	retraso_animacion = 0;
 	z = father.z+1;
-	if ( direccion == izquierda )
+	if ( direccion == DISPARO_IZQUIERDA )
 		flags = 1;
 	end
 	loop
@@ -540,7 +540,7 @@ begin
 	cnumber = c_0;
 	retraso_animacion = 0;
 	z = father.z+1;
-	if ( direccion == izquierda )
+	if ( direccion == DISPARO_IZQUIERDA )
 		flags = 1;
 	end
 	loop
@@ -650,7 +650,7 @@ begin
 	ctype = c_scroll;
 	cnumber = c_0;
 	angle = 45000;
-	if ( direccion == derecha )
+	if ( direccion == DISPARO_DERECHA )
 		velocidad_x = 6;
 	else
 		velocidad_x = -6;

@@ -100,36 +100,36 @@ END
 //
 // De acuerdo al estado del personaje, devuelve la direccion a la que debe salir la bala
 //
-FUNCTION DIRECCION_DISPARO(ESTADO,VARIANTE,DIRECCION)
+FUNCTION DIRECCION_DISPARO(estado,variante,direccion)
 PRIVATE
-	D;
+	result_dir;
 END
 BEGIN
 
-	SWITCH ( VARIANTE )
-		CASE ARR:
-			D = ARRIBA;
+	SWITCH ( variante )
+		CASE VAR_ARR:
+			result_dir = DISPARO_ARRIBA;
 		END
-		CASE ABA:
-			IF ( ESTADO == CAMINA OR ESTADO == REPOSO )
-				IF ( DIRECCION == DER )
-					D = DERECHA;
+		CASE VAR_ABA:
+			IF ( estado == EST_CAMINA OR estado == EST_REPOSO )
+				IF ( direccion == DIR_DER )
+					result_dir = DISPARO_DERECHA;
 				ELSE
-					D = IZQUIERDA;
+					result_dir = DISPARO_IZQUIERDA;
 				END
 			ELSE
-				D = ABAJO;
+				result_dir = DISPARO_ABAJO;
 			END
 		END
-		CASE ADE:
-			IF ( DIRECCION == DER )
-				D = DERECHA;
+		CASE VAR_ADE:
+			IF ( direccion == DIR_DER )
+				result_dir = DISPARO_DERECHA;
 			ELSE
-				D = IZQUIERDA;
+				result_dir = DISPARO_IZQUIERDA;
 			END
 		END
 	END
-	RETURN D;
+	RETURN result_dir;
 END
 
 // Comprobar la colision del disparo con el suelo
@@ -139,13 +139,13 @@ PRIVATE
 END
 BEGIN
 	SWITCH (DIRECCION)
-		CASE ARRIBA:
+		CASE DISPARO_ARRIBA:
 		END
-		CASE ABAJO:
+		CASE DISPARO_ABAJO:
 		END
-		CASE IZQUIERDA:
+		CASE DISPARO_IZQUIERDA:
 		END
-		CASE DERECHA:
+		CASE DISPARO_DERECHA:
 		END
 	END
 END

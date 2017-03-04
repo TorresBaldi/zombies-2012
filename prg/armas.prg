@@ -166,7 +166,7 @@ begin
 
 
 		// cancela los disparos si esta agachada+caminando o muerta
-		if ( (carla_var == aba and carla_est == camina) or carla_muriendo)
+		if ( (carla_var == VAR_ABA and carla_est == EST_CAMINA) or carla_muriendo)
 			disparar = false;
 			permitido = false;
 			esta_disparando_rafaga = false;
@@ -285,16 +285,16 @@ begin
 	end
 
 	switch (direccion)
-		case derecha:
+		case DISPARO_DERECHA:
 			angle = 0 + variacion * 1000;
 		end
-		case arriba:
+		case DISPARO_ARRIBA:
 			angle = 90000 + variacion * 1000;
 		end
-		case izquierda:
+		case DISPARO_IZQUIERDA:
 			angle = 180000 + variacion * 1000;
 		end
-		case abajo:
+		case DISPARO_ABAJO:
 			angle = 270000 + variacion * 1000;
 		end
 	end
@@ -306,16 +306,16 @@ begin
 			aceleracion = -3;
 			variacion = rand(-6,6);
 			switch (direccion)
-				case derecha:
+				case DISPARO_DERECHA:
 					original = y;
 				end
-				case izquierda:
+				case DISPARO_IZQUIERDA:
 					original = y;
 				end
-				case arriba:
+				case DISPARO_ARRIBA:
 					original = x;
 				end
-				case abajo:
+				case DISPARO_ABAJO:
 					original = x;
 				end
 			end
@@ -367,7 +367,7 @@ begin
 
 				// avanza con variacion, por cada direccion
 				switch (direccion)
-					case derecha:
+					case DISPARO_DERECHA:
 						x+= velocidad_actual;
 
 						if ( (original+variacion) > y)
@@ -379,7 +379,7 @@ begin
 						end
 					end
 
-					case izquierda:
+					case DISPARO_IZQUIERDA:
 						x-= velocidad_actual;
 
 						if ( (original+variacion) > y)
@@ -391,7 +391,7 @@ begin
 						end
 					end
 
-					case arriba:
+					case DISPARO_ARRIBA:
 						y-= velocidad_actual;
 
 						if ( (original+variacion) > x)
@@ -403,7 +403,7 @@ begin
 						end
 					end
 
-					case abajo:
+					case DISPARO_ABAJO:
 						y+= velocidad_actual;
 
 						if ( (original+variacion) > x)
@@ -462,16 +462,16 @@ begin
 	cnumber = c_0;
 
 	switch (direccion)
-		case arriba:
+		case DISPARO_ARRIBA:
 			angle = 0;
 		end
-		case izquierda:
+		case DISPARO_IZQUIERDA:
 			angle = 90000;
 		end
-		case abajo:
+		case DISPARO_ABAJO:
 			angle = 180000;
 		end
-		case derecha:
+		case DISPARO_DERECHA:
 			angle = 270000;
 		end
 	end
@@ -546,7 +546,7 @@ begin
 	velocidad_x = 8;
 	velocidad_y = -12;
 
-	if ( carla_dir == izq )
+	if ( carla_dir == DIR_IZQ )
 		velocidad_x = velocidad_x * -1;
 	end
 
