@@ -59,6 +59,11 @@ CONST
     OPC_VOLBGM      = 5;
     OPC_LAST        = 5;
 
+    // scale resolution
+    SCALE_1X = 03200240;
+    SCALE_2X = 06400480;
+    SCALE_3X = 09600720;
+
 END
 
 GLOBAL

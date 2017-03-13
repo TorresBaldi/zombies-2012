@@ -49,14 +49,14 @@ begin
 	// inicializacion de video
 	if ( os_id == OS_GP2X_WIZ || os_id == OS_CAANOO)
 
-		set_mode(320, 240, 16, mode_fullscreen);
+		set_mode(320, 240, 16, MODE_FULLSCREEN);
 
 	else
 
 		//scale_mode = SCALE_NOFILTER;
-		scale_resolution = 09600720;
+		scale_resolution = SCALE_3X;
 		set_title("Zombies 2012 (v" + game_version + ")");
-		set_mode(320, 240, 16, mode_window);
+		set_mode(320, 240, 16, MODE_WINDOW);
 
 	end
 
