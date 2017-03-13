@@ -30,7 +30,6 @@ before_script:
 
 script:
   - ./build.sh
-  - ls fpg
 
 before_deploy:
   - ./build-releases.sh $TRAVIS_TAG
