@@ -5,38 +5,38 @@ begin
 	partida.opciones[OPC_FULLSCREEN].min_value = 0;
 	partida.opciones[OPC_FULLSCREEN].max_value = 1;
 	partida.opciones[OPC_FULLSCREEN].value = 0;
-	partida.opciones[OPC_FULLSCREEN].show_on_pc = 0;
-	partida.opciones[OPC_FULLSCREEN].show_on_wiz = 0;
+	partida.opciones[OPC_FULLSCREEN].show_on_pc = TRUE;
+	partida.opciones[OPC_FULLSCREEN].show_on_wiz = FALSE;
 
 	partida.opciones[OPC_SCALE].min_value = 1;
 	partida.opciones[OPC_SCALE].max_value = 3;
 	partida.opciones[OPC_SCALE].value = 2;
-	partida.opciones[OPC_SCALE].show_on_pc = 0;
-	partida.opciones[OPC_SCALE].show_on_wiz = 0;
+	partida.opciones[OPC_SCALE].show_on_pc = TRUE;
+	partida.opciones[OPC_SCALE].show_on_wiz = FALSE;
 
 	partida.opciones[OPC_QUALITY].min_value = 1;
 	partida.opciones[OPC_QUALITY].max_value = 3;
 	partida.opciones[OPC_QUALITY].value = 3;
-	partida.opciones[OPC_QUALITY].show_on_pc = 1;
-	partida.opciones[OPC_QUALITY].show_on_wiz = 1;
+	partida.opciones[OPC_QUALITY].show_on_pc = TRUE;
+	partida.opciones[OPC_QUALITY].show_on_wiz = FALSE;
 
 	partida.opciones[OPC_VOLMASTER].min_value = 0;
 	partida.opciones[OPC_VOLMASTER].max_value = 100;
 	partida.opciones[OPC_VOLMASTER].value = 100;
-	partida.opciones[OPC_VOLMASTER].show_on_pc = 0;
-	partida.opciones[OPC_VOLMASTER].show_on_wiz = 0;
+	partida.opciones[OPC_VOLMASTER].show_on_pc = TRUE;
+	partida.opciones[OPC_VOLMASTER].show_on_wiz = TRUE;
 
 	partida.opciones[OPC_VOLSFX].min_value = 0;
 	partida.opciones[OPC_VOLSFX].max_value = 100;
 	partida.opciones[OPC_VOLSFX].value = 50;
-	partida.opciones[OPC_VOLSFX].show_on_pc = 1;
-	partida.opciones[OPC_VOLSFX].show_on_wiz = 1;
+	partida.opciones[OPC_VOLSFX].show_on_pc = FALSE;
+	partida.opciones[OPC_VOLSFX].show_on_wiz = FALSE;
 
 	partida.opciones[OPC_VOLBGM].min_value = 0;
 	partida.opciones[OPC_VOLBGM].max_value = 100;
 	partida.opciones[OPC_VOLBGM].value = 25;
-	partida.opciones[OPC_VOLBGM].show_on_pc = 1;
-	partida.opciones[OPC_VOLBGM].show_on_wiz = 1;
+	partida.opciones[OPC_VOLBGM].show_on_pc = FALSE;
+	partida.opciones[OPC_VOLBGM].show_on_wiz = FALSE;
 
 
 end
@@ -146,14 +146,14 @@ begin
 			case OPC_SCALE:
 
 				txt_opcion = "Scale Factor";
-				txt_help = "Screen scale factor, only in windowed mode.";
+				txt_help = "Screen scale factor, only applied if fullscreen mode is disabled.";
 
 				if ( valor_actual == 1 )
-					txt_valor = "1X";
+					txt_valor = "1X (320x240)";
 				elif( valor_actual == 2 )
-					txt_valor = "2X";
+					txt_valor = "2X (640x480)";
 				else
-					txt_valor = "3X";
+					txt_valor = "3X (960x720)";
 				end
 
 			end
@@ -161,7 +161,7 @@ begin
 			case OPC_QUALITY:
 
 				txt_opcion = "Graphics Quality";
-				txt_help = "Graphics and explosions quality. Lower values can improve performance.";
+				txt_help = "Game graphics and explosions quality. Lower values can improve performance.";
 
 				if ( valor_actual == 1 )
 					txt_valor = "Low";
@@ -175,7 +175,7 @@ begin
 
 			case OPC_VOLMASTER:
 				txt_opcion = "MASTER Volume";
-				txt_help = "General volume.";
+				txt_help = "General game volume.";
 				txt_valor = valor_actual + " %";
 				key_lock2 = false;
 			end
