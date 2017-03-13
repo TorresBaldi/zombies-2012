@@ -2,6 +2,7 @@ process iniciar_menu()
 
 private
 	int permitido;
+	int id_txt_version;
 
 	int menu_opciones_inicial = 1;
 	int menu_opciones_total = 6;
@@ -19,7 +20,7 @@ begin
 	opcion(6);
 
 	// muestra la version
-	write( 0, 318, 0, 2, "v" + game_version );
+	id_txt_version = write( 0, 318, 0, 2, "v" + game_version );
 
 	// escribe el texto de ayuda
 	text_scrollhelp_start();
@@ -100,6 +101,7 @@ begin
 
 			// terminada su funcion mata a sus hijos y sale de este proceso
 			if (nivel_cambio)
+				delete_text(id_txt_version);
 				break;
 			end
 

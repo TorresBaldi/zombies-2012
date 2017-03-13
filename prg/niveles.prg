@@ -8,7 +8,6 @@ begin
 
 		if ( nivel_cambio == true )
 			nivel_cambio = false;
-			delete_text(all_text);
 
 			// descarga recursos anteriores
 			descargar();
@@ -327,7 +326,6 @@ begin
 	end
 
 	clear_screen();
-	delete_text(all_text);
 
 end
 
