@@ -3,6 +3,9 @@ language: c
 notifications:
   email: false
 
+env:
+  - BENNU_PATH=tools/bennugd-binaries/linux/
+
 before_install:
   - sudo apt-get update -qq
 
@@ -13,11 +16,11 @@ before_install:
   - sudo apt-get install -qq zlib1g:i386 libssl1.0.0:i386 libsdl1.2debian:i386 libsdl-mixer1.2:i386
 
 install:
-  - wget http://www.bennugd.org/downloads/bgd-1.0.0-r338-linux.tar.gz
-  - tar -zxvf bgd-1.0.0-r338-linux.tar.gz
-  - chmod +x bin/*
-  - sudo mv bin/* /usr/local/bin/
-  - sudo mv lib/* /usr/local/lib/
+  # - wget http://www.bennugd.org/downloads/bgd-1.0.0-r338-linux.tar.gz
+  # - tar -zxvf bgd-1.0.0-r338-linux.tar.gz
+  - chmod +x $BENNU_PATH/bin/*
+  - sudo cp $BENNU_PATH/bin/* /usr/local/bin/
+  - sudo cp $BENNU_PATH/lib/* /usr/local/lib/
   - sudo ldconfig -v
 
 before_script:
