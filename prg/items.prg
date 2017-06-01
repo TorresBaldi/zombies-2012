@@ -1,11 +1,4 @@
-//
-// PROYECTO:	Zombies2012
-//
-// ARCHIVO: 	objetos.prg
-//
-// INFO: 		Objetos recogibles y/o destruibles en el escenario
-//
-
+// Objetos recogibles y/o destruibles en el escenario
 
 PROCESS ITEM_ARMA(X, Y);
 
