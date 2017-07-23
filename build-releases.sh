@@ -5,7 +5,6 @@ clean() {
 	echo "-- clean --"
 
 	rm -rf "releases/*"
-
 }
 
 compile_assets() {
@@ -14,7 +13,6 @@ compile_assets() {
 
 	bgdc tools/bgd-fpgtool/fpgtools.prg
 	bgdi tools/bgd-fpgtool/fpgtools.dcb -c fpg-sources fpg 16
-
 }
 
 copy_game_resources() {

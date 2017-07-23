@@ -5,19 +5,19 @@ unset OS_ID
 LD_LIBRARY_PATH_BAK=$LD_LIBRARY_PATH
 PATH_BAK=$PATH
 
-LD_LIBRARY_PATH=../bgd-runtime:$LD_LIBRARY_PATH
-PATH=../bgd-runtime:$PATH
+LD_LIBRARY_PATH=bgd-runtime:$LD_LIBRARY_PATH
+PATH=bgd-runtime:$PATH
 
 OS_ID=8
 export OS_ID
 
 echo 2 > /proc/cpu/alignment
 
-##bgdc main.prg 1>log1.txt 2>err1.txt
-##bgdi main.dcb 1>log2.txt 2>err2.txt
+# bgdc main.prg 1>log1.txt 2>err1.txt
+bgdi zombies2012 1>log2.txt 2>err2.txt
 
-##bgdc main.prg
-bgdi main.dcb
+# bgdc main.prg
+# bgdi zombies2012
 
 unset OS_ID
 
