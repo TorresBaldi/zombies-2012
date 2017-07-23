@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # build bgd-fpgtool
-./tools/bgd-fpgtool/build.sh
+cd tools/bgd-fpgtool/
+./build.sh
+cd ../..
 
 # build fpg files
 bgdc tools/bgd-fpgtool/fpgtools.prg
