@@ -1,10 +1,6 @@
-// game files
+# game files
 *.dcb
 savegame.dat
 
-// release files
-releases/linux/
-releases/windows/
-releases/canoo/
-releases/wiz/
-releases/*.zip
+# release files
+releases/*
