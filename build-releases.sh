@@ -11,6 +11,9 @@ compile_assets() {
 
 	echo "-- compile_assets --"
 
+	# build bgd-fpgtool
+	./tools/bgd-fpgtool/build.sh
+
 	bgdc tools/bgd-fpgtool/fpgtools.prg
 	bgdi tools/bgd-fpgtool/fpgtools.dcb -c fpg-sources fpg 16
 }
