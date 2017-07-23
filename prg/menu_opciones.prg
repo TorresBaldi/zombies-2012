@@ -1,42 +1,42 @@
-function iniciar_opciones()
+function inicializar_opciones()
 
 begin
 
-	partida.option[opc_fullscreen].min_value = 0;
-	partida.option[opc_fullscreen].max_value = 1;
-	partida.option[opc_fullscreen].value = 0;
-	partida.option[opc_fullscreen].show_on_pc = 1;
-	partida.option[opc_fullscreen].show_on_wiz = 0;
+	partida.opciones[OPC_FULLSCREEN].min_value = 0;
+	partida.opciones[OPC_FULLSCREEN].max_value = 1;
+	partida.opciones[OPC_FULLSCREEN].value = 0;
+	partida.opciones[OPC_FULLSCREEN].show_on_pc = TRUE;
+	partida.opciones[OPC_FULLSCREEN].show_on_wiz = FALSE;
 
-	partida.option[opc_scale].min_value = 1;
-	partida.option[opc_scale].max_value = 3;
-	partida.option[opc_scale].value = 2;
-	partida.option[opc_scale].show_on_pc = 1;
-	partida.option[opc_scale].show_on_wiz = 0;
+	partida.opciones[OPC_SCALE].min_value = 1;
+	partida.opciones[OPC_SCALE].max_value = 3;
+	partida.opciones[OPC_SCALE].value = 2;
+	partida.opciones[OPC_SCALE].show_on_pc = TRUE;
+	partida.opciones[OPC_SCALE].show_on_wiz = FALSE;
 
-	partida.option[opc_quality].min_value = 1;
-	partida.option[opc_quality].max_value = 3;
-	partida.option[opc_quality].value = 3;
-	partida.option[opc_quality].show_on_pc = 1;
-	partida.option[opc_quality].show_on_wiz = 1;
+	partida.opciones[OPC_QUALITY].min_value = 1;
+	partida.opciones[OPC_QUALITY].max_value = 3;
+	partida.opciones[OPC_QUALITY].value = 3;
+	partida.opciones[OPC_QUALITY].show_on_pc = TRUE;
+	partida.opciones[OPC_QUALITY].show_on_wiz = FALSE;
 
-	partida.option[opc_volmaster].min_value = 0;
-	partida.option[opc_volmaster].max_value = 100;
-	partida.option[opc_volmaster].value = 100;
-	partida.option[opc_volmaster].show_on_pc = 1;
-	partida.option[opc_volmaster].show_on_wiz = 1;
+	partida.opciones[OPC_VOLMASTER].min_value = 0;
+	partida.opciones[OPC_VOLMASTER].max_value = 100;
+	partida.opciones[OPC_VOLMASTER].value = 100;
+	partida.opciones[OPC_VOLMASTER].show_on_pc = TRUE;
+	partida.opciones[OPC_VOLMASTER].show_on_wiz = TRUE;
 
-	partida.option[opc_volsfx].min_value = 0;
-	partida.option[opc_volsfx].max_value = 100;
-	partida.option[opc_volsfx].value = 50;
-	partida.option[opc_volsfx].show_on_pc = 1;
-	partida.option[opc_volsfx].show_on_wiz = 1;
+	partida.opciones[OPC_VOLSFX].min_value = 0;
+	partida.opciones[OPC_VOLSFX].max_value = 100;
+	partida.opciones[OPC_VOLSFX].value = 50;
+	partida.opciones[OPC_VOLSFX].show_on_pc = FALSE;
+	partida.opciones[OPC_VOLSFX].show_on_wiz = FALSE;
 
-	partida.option[opc_volbgm].min_value = 0;
-	partida.option[opc_volbgm].max_value = 100;
-	partida.option[opc_volbgm].value = 25;
-	partida.option[opc_volbgm].show_on_pc = 1;
-	partida.option[opc_volbgm].show_on_wiz = 1;
+	partida.opciones[OPC_VOLBGM].min_value = 0;
+	partida.opciones[OPC_VOLBGM].max_value = 100;
+	partida.opciones[OPC_VOLBGM].value = 25;
+	partida.opciones[OPC_VOLBGM].show_on_pc = FALSE;
+	partida.opciones[OPC_VOLBGM].show_on_wiz = FALSE;
 
 
 end
@@ -64,16 +64,18 @@ end
 
 begin
 
-	put_screen(fpg_system, 31);
+	put(fpg_system, 31, 160, 120);
 
 	text_scrollhelp_start();
-	
+
+	opcion_actual = next_option( opcion_actual );
+
 	loop
 
 		// vuelvo al menu principal
 		if ( jkeys_state[_JKEY_MENU] )
 			nivel_cambio = true;
-			nivel = menu;
+			nivel = NIVEL_MENU;
 			break;
 		end
 
@@ -84,7 +86,7 @@ begin
 			help_updated = false;
 
 			opcion_actual = prev_option( opcion_actual );
-			valor_actual = partida.option[opcion_actual].value;
+			valor_actual = partida.opciones[opcion_actual].value;
 
 		end
 
@@ -94,14 +96,14 @@ begin
 			help_updated = false;
 
 			opcion_actual = next_option( opcion_actual );
-			valor_actual = partida.option[opcion_actual].value;
+			valor_actual = partida.opciones[opcion_actual].value;
 
 		end
 
 		if ( jkeys_state[ _JKEY_LEFT ] and not key_lock2  )
 			key_lock2 = true;
 
-			if ( valor_actual > partida.option[opcion_actual].min_value )
+			if ( valor_actual > partida.opciones[opcion_actual].min_value )
 				valor_actual--;
 			end
 
@@ -110,7 +112,7 @@ begin
 		if ( jkeys_state[ _JKEY_RIGHT ] and not key_lock2  )
 			key_lock2 = true;
 
-			if ( valor_actual < partida.option[opcion_actual].max_value )
+			if ( valor_actual < partida.opciones[opcion_actual].max_value )
 				valor_actual++;
 			end
 
@@ -127,67 +129,67 @@ begin
 		switch ( opcion_actual )
 
 			// fullscreen
-			case opc_fullscreen:
+			case OPC_FULLSCREEN:
 
-				txt_opcion = "Pantalla Completa";
-				txt_help = "Muestra el juego en pantalla completa";
+				txt_opcion = "Fullscreen";
+				txt_help = "Shows the game in fullscreen mode.";
 
 				if ( valor_actual )
-					txt_valor = "Activada";
+					txt_valor = "Enable";
 				else
-					txt_valor = "Desactivada";
+					txt_valor = "Disable";
 				end
 
 
 			end
 
-			case opc_scale:
+			case OPC_SCALE:
 
-				txt_opcion = "Escalado";
-				txt_help = "Escalado completo de pantalla";
+				txt_opcion = "Scale Factor";
+				txt_help = "Screen scale factor, only applied if fullscreen mode is disabled.";
 
 				if ( valor_actual == 1 )
-					txt_valor = "1X";
+					txt_valor = "1X (320x240)";
 				elif( valor_actual == 2 )
-					txt_valor = "2X";
+					txt_valor = "2X (640x480)";
 				else
-					txt_valor = "3X";
+					txt_valor = "3X (960x720)";
 				end
 
 			end
 
-			case opc_quality:
+			case OPC_QUALITY:
 
-				txt_opcion = "Calidad Graficos";
-				txt_help = "Calidad de graficos y explosiones. Puede mejorar el rendimiento";
+				txt_opcion = "Graphics Quality";
+				txt_help = "Game graphics and explosions quality. Lower values can improve performance.";
 
 				if ( valor_actual == 1 )
-					txt_valor = "Baja";
+					txt_valor = "Low";
 				elif( valor_actual == 2 )
-					txt_valor = "Media";
+					txt_valor = "Medium";
 				else
-					txt_valor = "Alta";
+					txt_valor = "High";
 				end
 
 			end
 
-			case opc_volmaster:
-				txt_opcion = "Volumen MASTER";
-				txt_help = "Volumen general";
+			case OPC_VOLMASTER:
+				txt_opcion = "MASTER Volume";
+				txt_help = "General game volume.";
 				txt_valor = valor_actual + " %";
 				key_lock2 = false;
 			end
 
-			case opc_volsfx:
-				txt_opcion = "Volumen SFX";
-				txt_help = "Volumen sonidos efectos";
+			case OPC_VOLSFX:
+				txt_opcion = "SFX Volume";
+				txt_help = "Sound effects volume.";
 				txt_valor = valor_actual + " %";
 				key_lock2 = false;
 			end
 
-			case opc_volbgm:
-				txt_opcion = "Volumen BGM";
-				txt_help = "Volumen musica";
+			case OPC_VOLBGM:
+				txt_opcion = "BGM Volume";
+				txt_help = "Background Music volume.";
 				txt_valor = valor_actual + " %";
 				key_lock2 = false;
 			end
@@ -215,10 +217,22 @@ function next_option( int actual_option )
 
 begin
 
-	repeat
+	loop
+
 		actual_option++;
-		if (actual_option >= opc_last ) actual_option = 0; end
-	until ( partida.option[actual_option].show_on_pc )
+		if (actual_option > OPC_LAST ) actual_option = 0; end
+
+		// busco la siguiente opcion disponible en pc o wiz
+		// TODO optimizar esto
+		if ( partida.opciones[actual_option].show_on_pc && os_id <= OS_MACOS )
+			break;
+		end
+
+		if ( partida.opciones[actual_option].show_on_wiz && os_id >= OS_GP2X_WIZ )
+			break;
+		end
+
+	end
 
 	return actual_option;
 
@@ -229,10 +243,19 @@ function prev_option( int actual_option )
 
 begin
 
-	repeat
+	loop
 		actual_option--;
-		if (actual_option < 0 ) actual_option = opc_last -1; end
-	until ( partida.option[actual_option].show_on_pc )
+		if (actual_option < 0 ) actual_option = OPC_LAST; end
+
+		if ( partida.opciones[actual_option].show_on_pc && os_id <= OS_MACOS )
+			break;
+		end
+
+		if ( partida.opciones[actual_option].show_on_wiz && os_id >= OS_GP2X_WIZ )
+			break;
+		end
+
+	end
 
 	return actual_option;
 

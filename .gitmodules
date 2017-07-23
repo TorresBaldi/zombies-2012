@@ -1,0 +1,6 @@
+[submodule "tools/bgd-fpgtool"]
+	path = tools/bgd-fpgtool
+	url = https://tehuel@github.com/TorresBaldi/bgd-fpgtool.git
+[submodule "tools/bennugd-binaries"]
+	path = tools/bennugd-binaries
+	url = https://github.com/TorresBaldi/bennugd-binaries.git

@@ -2,7 +2,7 @@ process iniciar_menu()
 
 private
 	int permitido;
-	int id_aviso_cargando;
+	int id_txt_version;
 
 	int menu_opciones_inicial = 1;
 	int menu_opciones_total = 6;
@@ -10,17 +10,17 @@ end
 
 begin
 
-	put_screen (fpg_system,1);
-	
+	put (fpg_system,1, 160, 120);
+
 	opcion(1);
 	opcion(2);
 	opcion(3);
 	opcion(4);
 	opcion(5);
 	opcion(6);
-	
+
 	// muestra la version
-	write( 0, 318, 0, 2, "v" + game_version );
+	id_txt_version = write( 0, 318, 0, 2, "v" + game_version );
 
 	// escribe el texto de ayuda
 	text_scrollhelp_start();
@@ -32,34 +32,34 @@ begin
 		// write ( 0, 160, 230, 4, "[W] and [S] navigate  -  [ENTER] confirm");
 		text_scrollhelp_update ( "Use [W] and [S] navigate, [ENTER] to confirm" );
 	end
-	
+
 	loop
-	
+
 		// intercambia las opciones del menu
 		if ( jkeys_state[_JKEY_UP] and permitido > 5);
 			permitido = 0;
-			
+
 			menu_seleccion--;
-			
+
 			if (menu_seleccion < menu_opciones_inicial) menu_seleccion = menu_opciones_inicial; end
 		end
 		if ( jkeys_state[_JKEY_DOWN] and permitido > 5);
 			permitido = 0;
-			
+
 			menu_seleccion++;
-			
+
 			if (menu_seleccion > menu_opciones_total) menu_seleccion = menu_opciones_total; end
 		end
 		permitido++;
-		
+
 /* -------------------------------------------------------------------------- */
 		// reacciona de acuerdo a la seleccion
 		if ( jkeys_state[_JKEY_SELECT] or jkeys_state[_JKEY_B] )
-		
-			id_aviso_cargando = aviso_cargando();
-			
+
+			aviso_cargando();
+
 			frame;
-			
+
 			switch (menu_seleccion)
 /* -------------------------------------------------------------------------- */
 				// "start game"
@@ -75,22 +75,22 @@ begin
 				// "options"
 				case 3:
 					nivel_cambio = true;
-					nivel = opciones;
-					
+					nivel = NIVEL_OPCIONES;
+
 				end
 /* -------------------------------------------------------------------------- */
 				// "help"
 				case 4:
 					nivel_cambio = true;
-					nivel = ayuda;
-					
+					nivel = NIVEL_AYUDA;
+
 				end
 /* -------------------------------------------------------------------------- */
 				// "credits"
 				case 5:
 					nivel_cambio = true;
-					nivel = creditos;
-					
+					nivel = NIVEL_CREDITOS;
+
 				end
 /* -------------------------------------------------------------------------- */
 				// "exit"
@@ -98,17 +98,18 @@ begin
 					exit();
 				end
 			end
-			
+
 			// terminada su funcion mata a sus hijos y sale de este proceso
 			if (nivel_cambio)
+				delete_text(id_txt_version);
 				break;
 			end
-			
+
 		end
-		
-	
+
+
 		frame;
-		
+
 	end
 
 end
@@ -119,7 +120,7 @@ private
 	i;
 	y_final;
 	y_vel;
-	
+
 	alpha_final;
 end
 begin
@@ -129,11 +130,11 @@ begin
 	x = 160;
 	y = 140 + numero * 30;
 	loop
-	
+
 		diferencia = menu_seleccion - numero;
-		y_final = 140 - diferencia * 20;
+		y_final = 140 - diferencia * 30;
 		alpha_final = 255 - abs (diferencia) * 96;
-		
+
 		// cambia
 		if ( y_final < y)
 			y_vel+=3;
@@ -150,14 +151,14 @@ begin
 		elseif ( y_final == y )
 			y_vel = 0;
 		end
-		
+
 		// cambia alfa
 		if ( alpha_final > alpha)
 			alpha += 16;
 		elseif ( alpha_final < alpha )
 			alpha -= 16;
 		end
-		
+
 		// cambia size
 		if ( menu_seleccion == numero )
 			if (size < 100)
@@ -172,14 +173,14 @@ begin
 				size = 50;
 			end
 		end
-		
+
 		// si se descarga el menu, termina el proceso
-		if ( nivel_cargado[menu] == false )
+		if ( nivel_cargado[NIVEL_MENU] == false )
 			break;
 		end
-		
+
 		frame;
-		
+
 	end
 end
 
@@ -193,18 +194,18 @@ begin
 	y = 2;
 	file = fpg_system;
 	graph = 23;
-	
+
 	loop
-	
+
 		vida--;
 		if ( vida < 0 )
 			break;
 		end
-		
+
 		frame;
-		
+
 	end
-	
+
 end
 
 /* -------------------------------------------------------------------------- */
@@ -225,7 +226,7 @@ begin
 
 	loop
 
-		scroll[2].x0 += 2;
+		scroll[2].x0 += 1;
 
 		frame;
 
@@ -237,7 +238,7 @@ end
 
 function text_scrollhelp_update( string text)
 
-private 
+private
 
 	map_id;
 

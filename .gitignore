@@ -1,7 +1,6 @@
-// folders
-fpg-sources/
-tools/
-
-// files
-main.dcb
+# game files
+*.dcb
 savegame.dat
+
+# release files
+releases/*

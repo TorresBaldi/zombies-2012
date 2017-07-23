@@ -1,11 +1,4 @@
-// 
-// PROYECTO:	Zombies2012
-// 
-// ARCHIVO: 	objetos.prg
-// 
-// INFO: 		Objetos recogibles y/o destruibles en el escenario
-// 
-
+// Objetos recogibles y/o destruibles en el escenario
 
 PROCESS ITEM_ARMA(X, Y);
 
@@ -21,26 +14,26 @@ BEGIN
 	ctype = c_scroll;
 	cnumber = c_0;
 	tipo = rand(1,6);
-	
+
 	signal_action(S_KILL_TREE, S_IGN);
-	
+
 	switch (tipo)
-		case uzi:
+		case ARMA_UZI:
 			municion = 90;
 		end
-		case minigun:
+		case ARMA_MINIGUN:
 			municion = 90;
 		end
-		case escopeta:
+		case ARMA_ESCOPETA:
 			municion = 16;
 		end
-		case misil:
+		case ARMA_MISIL:
 			municion = 5;
 		end
-		case cohete:
+		case ARMA_COHETE:
 			municion = 6;
 		end
-		case lanzallamas:
+		case ARMA_LANZALLAMAS:
 			municion = 100;
 		end
 	end
@@ -48,22 +41,22 @@ BEGIN
 	GRAPH = tipo;
 
 	LOOP
-	
+
 		// desaparece con el tiempo
 		tiempo++;
 		IF ( tiempo > 200 )
 			BREAK;
 		END
-		
+
 		// si el personaje la toca, aumenta la municion
 		IF ( collision (type carla) )
 			play_wav (sfx_item,0);
 			partida.armas[tipo] = TRUE;
-			partida.municion[TIPO] += municion;
-			
+			partida.municion[tipo] += municion;
+
 			BREAK;
 		END
-	
+
 		FRAME;
 	END
 END

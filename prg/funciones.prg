@@ -6,26 +6,26 @@ private
 	int escalon;
 	int i;
 	int color;
-	
+
 end
 
 begin
 	// horizontal
 	if ( vel_x <> 0 )
-	
+
 		signo_x = abs(vel_x) / vel_x;
-		
+
 		for ( i = 0; i<= abs(vel_x); i++)
-		
+
 			escalon = 0;
-			
+
 			color = map_get_pixel(fpg_nivel,1,x+(i*signo_x),y-(escalon+1));
 			while ( color == suelo1 or color == suelo2 )
 				// mientras haya suelo aumenta el escalon
 				escalon++;
 				color = map_get_pixel(fpg_nivel,1,x+(i*signo_x),y-(escalon+1));
 			end
-			
+
 			if (escalon < 5)
 				// si el escalon es menor a 5, se mueve
 				y -= escalon;
@@ -36,21 +36,21 @@ begin
 			end
 		end
 	end
-	
+
 	// vertical
 	if ( vel_y > 0 )
 		// hacia abajo detecta suelo
 		for ( i = 0; i <= vel_y; i++ )
-		
+
 			color = map_get_pixel(fpg_nivel,1,x,y);
 			if( color == suelo1 or color == suelo2 )
 				break;
 			else
 				y++;
 			end
-			
+
 		end
-		
+
 	elseif ( vel_y < 0)
 		// hacia arriba detecta techo
 		for ( i = 0; i <= abs(vel_y); i++ )
@@ -59,11 +59,11 @@ begin
 			else
 				y--;
 			end
-		end		
+		end
 	end
-	
-	
-	
+
+
+
 	// fix: si esta muy cerca del suelo, se apoya
 	if (vel_y >= 0)
 		for ( i=0; i <= 3; i++ )
@@ -81,9 +81,9 @@ begin
 end
 
 
-// 
+//
 // Pregunta si el disparo choco con suelo o paredes
-// 
+//
 FUNCTION COMPROBAR_DUREZA_DISPARO(x,y);
 PRIVATE
 	HAY_DUREZA = FALSE;
@@ -92,44 +92,44 @@ BEGIN
 	IF (map_get_pixel(fpg_nivel,1,x,y) == SUELO1)
 		HAY_DUREZA = TRUE;
 	END
-	
+
 	RETURN HAY_DUREZA;
 
 END
 
-// 
+//
 // De acuerdo al estado del personaje, devuelve la direccion a la que debe salir la bala
-// 
-FUNCTION DIRECCION_DISPARO(ESTADO,VARIANTE,DIRECCION)
+//
+FUNCTION DIRECCION_DISPARO(estado,variante,direccion)
 PRIVATE
-	D;
+	result_dir;
 END
 BEGIN
 
-	SWITCH ( VARIANTE )
-		CASE ARR:
-			D = ARRIBA;
+	SWITCH ( variante )
+		CASE VAR_ARR:
+			result_dir = DISPARO_ARRIBA;
 		END
-		CASE ABA:
-			IF ( ESTADO == CAMINA OR ESTADO == REPOSO )
-				IF ( DIRECCION == DER )
-					D = DERECHA;
+		CASE VAR_ABA:
+			IF ( estado == EST_CAMINA OR estado == EST_REPOSO )
+				IF ( direccion == DIR_DER )
+					result_dir = DISPARO_DERECHA;
 				ELSE
-					D = IZQUIERDA;
+					result_dir = DISPARO_IZQUIERDA;
 				END
 			ELSE
-				D = ABAJO;
+				result_dir = DISPARO_ABAJO;
 			END
 		END
-		CASE ADE:
-			IF ( DIRECCION == DER )
-				D = DERECHA;
+		CASE VAR_ADE:
+			IF ( direccion == DIR_DER )
+				result_dir = DISPARO_DERECHA;
 			ELSE
-				D = IZQUIERDA;
+				result_dir = DISPARO_IZQUIERDA;
 			END
 		END
 	END
-	RETURN D;
+	RETURN result_dir;
 END
 
 // Comprobar la colision del disparo con el suelo
@@ -139,13 +139,13 @@ PRIVATE
 END
 BEGIN
 	SWITCH (DIRECCION)
-		CASE ARRIBA:
+		CASE DISPARO_ARRIBA:
 		END
-		CASE ABAJO:
+		CASE DISPARO_ABAJO:
 		END
-		CASE IZQUIERDA:
+		CASE DISPARO_IZQUIERDA:
 		END
-		CASE DERECHA:
+		CASE DISPARO_DERECHA:
 		END
 	END
 END
@@ -157,7 +157,7 @@ begin
 	if (partida.municion[arma_actual] <= 0 )
 		partida.armas[arma_actual] = false;
 	end
-	
+
 	// circula hasta la proxima arma disponible
 	if (dir)
 		repeat
@@ -174,5 +174,5 @@ begin
 			end
 		until ( partida.armas[arma_actual] == true )
 	end
-	
+
 end

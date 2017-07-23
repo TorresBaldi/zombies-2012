@@ -18,9 +18,9 @@ import "mod_wm";
 /* -------------------------------------------------------------------------- */
 
 global
-	
-	string game_version = "1.2";
-	
+
+	string game_version = "1.3-rc1";
+
 end
 
 /* -------------------------------------------------------------------------- */
@@ -47,42 +47,40 @@ include "prg/items.prg";
 begin
 
 	// inicializacion de video
-	if ( os_id == OS_GP2X_WIZ)
+	if ( os_id == OS_GP2X_WIZ || os_id == OS_CAANOO)
 
-		set_mode(320, 240, 16, mode_fullscreen);
-	
+		set_mode(320, 240, 16, MODE_FULLSCREEN);
+
 	else
 
 		//scale_mode = SCALE_NOFILTER;
-		scale_resolution = 09600720;
-		set_title("Zombies 2012 (v" + game_version + ")");		
-		set_mode(320, 240, 16, mode_window);
+		scale_resolution = SCALE_3X;
+		set_title("Zombies 2012 (v" + game_version + ")");
+		set_mode(320, 240, 16, MODE_WINDOW);
 
-		/* screenshot mode */
-		/*
-		scale_resolution = 03200240;
-		set_mode(320, 240, 16, mode_window + mode_frameless);
-		*/
-		
 	end
 
-	// DEBUG, SALTO INTRO
-	nivel = menu;
-	
 	set_fps(30, 0);
-	//write_var(0, 0, 0, 0, fps);
-	
+
+
+	#ifdef DEBUG
+		// salto intro
+		nivel = NIVEL_MENU;
+		game_version = game_version + " DBG";
+		write_var(0, 0, 0, 0, fps);
+	#endif
+
 
 	//graficos "del sistema"
 	fpg_system = load_fpg("fpg/system.fpg");
 	bgm_intro = load_song ( "bgm/01_graveyard_boss_it.ogg" );
 
-	
+
 	// procesos de inicializacion
-	iniciar_armas();
-	iniciar_opciones();
+	inicializar_armas();
+	inicializar_opciones();
     asignar_teclas_pc();
-	
+
 	// procesos controladores
 	control_volumen();
     control_teclas();

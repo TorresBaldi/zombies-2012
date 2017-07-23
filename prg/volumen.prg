@@ -22,7 +22,7 @@ begin
 
 	file = fpg_volumen;
 	graph = volumen / 16;
-	
+
 	x = 160;
 	y = 260;
 
@@ -37,7 +37,7 @@ begin
 			set_song_volume(volumen);
 			inactivo = 0;
 		end
-		
+
 		if ( jkeys_state[_jkey_voldown] and volumen > 0 and volume_keylock)
 			volume_keylock = false;
 			volumen-= 16;
@@ -45,13 +45,13 @@ begin
 			set_song_volume(volumen);
 			inactivo = 0;
 		end
-		
+
 		if (not jkeys_state[_jkey_volup] and not jkeys_state[_jkey_voldown] and volume_keylock == false)
 			volume_keylock = true;
 		end
-		
+
 		inactivo++;
-		
+
 		// aparicion y desaparicion
 		if ( inactivo < CONST_OFFTIMER )
 			if ( y > CONST_ONSCREEN_Y )
@@ -62,11 +62,11 @@ begin
 				y+= velocidad;
 			end
 		end
-			
-		
+
+
 		graph = volumen / 16;
 		if ( graph == 0 ) graph = 9; end
-		
+
 		frame;
 	end
 

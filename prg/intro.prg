@@ -2,27 +2,25 @@ process iniciar_intro();
 
 private
 
-	image_current = 0;
+	image = 0;
 	image_max = 2;
 
 end
 
 begin
 
-	while ( image_current < image_max )
+	while ( image < image_max )
 
-		image_current++;
+		image++;
 
-		intro_slide(image_current);
+		intro_slide(image);
 
 		frame;
 
 	end
 
 	nivel_cambio = true;
-	nivel = menu;
-
-
+	nivel = NIVEL_MENU;
 
 end
 
@@ -31,11 +29,8 @@ function intro_slide( image );
 private
 
 	int i;
-
 	int fade_speed = 10;
-	int wait_speed = 60;
-
-	int phase;
+	int wait_time = 60;
 
 end
 
@@ -54,7 +49,7 @@ begin
 	end
 
 	//show
-	while( i < wait_speed )
+	while( i < wait_time )
 		i++;
 		frame;
 	end

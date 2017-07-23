@@ -9,32 +9,32 @@ begin
 	partida.salud = 100;
 	partida.vidas = 4;
 	partida.puntos = 0;
-	partida.nivel = pantalla1;
-	
-	partida.armas[pistola] 		= true;
-	partida.armas[uzi] 			= false;
-	partida.armas[minigun] 		= false;
-	partida.armas[escopeta] 	= false;
-	partida.armas[misil] 		= false;
-	partida.armas[cohete] 		= false;
-	partida.armas[lanzallamas] 	= false;
-	
-	partida.municion[pistola]		= 999;
-	partida.municion[uzi]			= 0;
-	partida.municion[minigun]		= 0;
-	partida.municion[escopeta]		= 0;
-	partida.municion[misil]			= 0;
-	partida.municion[cohete]		= 0;
-	partida.municion[lanzallamas]	= 0;
-	
+	partida.nivel = NIVEL_PANTALLA_1;
+
+	partida.armas[ARMA_PISTOLA] 	= true;
+	partida.armas[ARMA_UZI] 		= false;
+	partida.armas[ARMA_MINIGUN] 	= false;
+	partida.armas[ARMA_ESCOPETA] 	= false;
+	partida.armas[ARMA_MISIL] 		= false;
+	partida.armas[ARMA_COHETE] 		= false;
+	partida.armas[ARMA_LANZALLAMAS] = false;
+
+	partida.municion[ARMA_PISTOLA]		= 999;
+	partida.municion[ARMA_UZI]			= 0;
+	partida.municion[ARMA_MINIGUN]		= 0;
+	partida.municion[ARMA_ESCOPETA]		= 0;
+	partida.municion[ARMA_MISIL]		= 0;
+	partida.municion[ARMA_COHETE]		= 0;
+	partida.municion[ARMA_LANZALLAMAS]	= 0;
+
 	partida.granadas = 5;
 
 	// y guarda la partida
 	//save("savegame.dat", partida);
-	
+
 	// inicia el primer nivel
 	nivel_cambio = true;
-	nivel = pantalla1;
+	nivel = NIVEL_PANTALLA_1;
 
 end
 
@@ -47,10 +47,10 @@ begin
 
 	// obtiene la partida guardada
 	load("savegame.dat", partida);
-	
+
 	partida.vidas = 4;
 	partida.granadas = 5;
-	
+
 	//va al nivel correspondiente
 	nivel_cambio = true;
 	nivel = partida.nivel;
@@ -65,7 +65,7 @@ end
 // maneja la pausa
 function iniciar_juego(carlax,carlay,finalx,finaly, objetivo);
 
-private 
+private
 	int juego_pausado = false;
 	int pausa_posible = false;
 	int id_menu_pausa;
@@ -79,15 +79,15 @@ begin
 	fpg_armas = load_fpg("fpg/armas.fpg");
 	fpg_gui = load_fpg("fpg/gui.fpg");
 	fpg_items = load_fpg("fpg/items.fpg");
-	
-	sfx_armas[pistola] = load_wav("sfx/pistola.wav");
-	sfx_armas[uzi] = load_wav("sfx/uzi.wav");
-	sfx_armas[minigun] = load_wav("sfx/minigun.wav");
-	sfx_armas[escopeta] = load_wav("sfx/shotgun.wav");
-	sfx_armas[misil] = load_wav("sfx/misil.wav");
-	sfx_armas[cohete] = load_wav("sfx/cohete.wav");
-	sfx_armas[lanzallamas] = load_wav("sfx/llamas.wav");
-	
+
+	sfx_armas[ARMA_PISTOLA] = load_wav("sfx/pistola.wav");
+	sfx_armas[ARMA_UZI] = load_wav("sfx/uzi.wav");
+	sfx_armas[ARMA_MINIGUN] = load_wav("sfx/minigun.wav");
+	sfx_armas[ARMA_ESCOPETA] = load_wav("sfx/shotgun.wav");
+	sfx_armas[ARMA_MISIL] = load_wav("sfx/misil.wav");
+	sfx_armas[ARMA_COHETE] = load_wav("sfx/cohete.wav");
+	sfx_armas[ARMA_LANZALLAMAS] = load_wav("sfx/llamas.wav");
+
 	sfx_granada = load_wav("sfx/granada.wav");
 	sfx_item = load_wav("sfx/pickup.wav");
 
@@ -104,64 +104,64 @@ begin
 
 	// inicio del nivel
 	switch ( nivel )
-		case pantalla1:
-		
+		case NIVEL_PANTALLA_1:
+
 			// obtiene las durezas
 			techo = map_get_pixel(fpg_nivel,1,0,0);
 			suelo1 = map_get_pixel(fpg_nivel,1,1,0);
 			suelo2 = map_get_pixel(fpg_nivel,1,2,0);
-			
+
 			// inicia scrolls
 			start_scroll(0, fpg_nivel, 3, 2, 0, 0);
 			start_scroll(1, fpg_nivel, 4, 0, 0, 1);
-			
+
 			// relaciona scrolls
 			scroll[1].follow = 0;
 			scroll[1].ratio = 50;
-			
+
 		end
-		
-		case pantalla2:
-		
+
+		case NIVEL_PANTALLA_2:
+
 			// obtiene las durezas
 			techo = map_get_pixel(fpg_nivel,1,0,0);
 			suelo1 = map_get_pixel(fpg_nivel,1,1,0);
 			suelo2 = map_get_pixel(fpg_nivel,1,2,0);
-			
+
 			// inicia el scroll
 			start_scroll(0, fpg_nivel, 2, 0, 0 ,0);
-			
+
 			// crea algunos powerups
 			item_arma(975,170);
 			item_arma(975,170);
 			item_arma(975,170);
 		end
-		
-		case pantalla3:
+
+		case NIVEL_PANTALLA_3:
 			suelo1 = map_get_pixel(fpg_nivel,1,95,215);
 			techo = map_get_pixel(fpg_nivel,1,10,65);
 			start_scroll(0, fpg_nivel, 2, 0, 0 ,0);
 		end
-		
-		case pantalla4:
+
+		case NIVEL_PANTALLA_4:
 			suelo1 = map_get_pixel(fpg_nivel,1,215,170);
 			techo = map_get_pixel(fpg_nivel,1,20,220);
 			start_scroll(0, fpg_nivel, 2, 0, 0 ,0);
-			
+
 			item_arma(180,155);
 			item_arma(190,155);
 			item_arma(200,155);
 			item_arma(210,155);
 			item_arma(220,155);
 		end
-		
-		case pantalla5:
+
+		case NIVEL_PANTALLA_5:
 			suelo1 = map_get_pixel(fpg_nivel,1,0,70);
 			techo = map_get_pixel(fpg_nivel,1,0,0);
 			start_scroll(0, fpg_nivel, 2, 0, 0 ,0);
 		end
-		
-		case pantalla6:
+
+		case NIVEL_PANTALLA_6:
 			suelo1 = map_get_pixel(fpg_nivel,1,2,90);
 			techo = map_get_pixel(fpg_nivel,1,2,30);
 			start_scroll(0, fpg_nivel, 2, 0, 0 ,0);
@@ -169,22 +169,22 @@ begin
 	end
 
 	carla_muerta = true;
-	
+
 	controlar_granadas();
 	controlar_zombies();
 	controlar_gui();
 	controlar_objetivos(finalx, finaly, objetivo);
 	controlar_armas();
-	
+
 	loop
-		
+
 		// si se apreta menu sale
 		if ( jkeys_state[_JKEY_MENU] )
 			nivel_cambio = true;
-			nivel = menu;
+			nivel = NIVEL_MENU;
 			signal(id, S_KILL_TREE);
 		end
-		
+
 		// si se apreta pause pone pause
 		if ( jkeys_state[_JKEY_SELECT] and pausa_posible)
 			pausa_posible = false;
@@ -204,25 +204,25 @@ begin
 		if (pausa_posible == false and not jkeys_state[_JKEY_SELECT])
 			pausa_posible = true;
 		end
-		
+
 		// reinicia a carla si quedan vidas, sino, terminar partida
 		if ( carla_muerta == true )
 			carla_muerta = false;
 			carla_muriendo = false;
 			partida.vidas--;
 			partida.granadas = 5;
-			
+
 			if ( partida.vidas >= 0 )
 				partida.salud = 100;
 				carla(carlax, carlay);
 			else
 				nivel_cambio = true;
-				nivel = gameover;
+				nivel = NIVEL_GAMEOVER;
 				signal(id,s_kill_tree);
 			end
-			
+
 		end
-		
+
 		frame;
 	end
 
@@ -234,20 +234,20 @@ onexit
 	unload_fpg (fpg_armas);
 	unload_fpg (fpg_gui);
 	unload_fpg (fpg_items);
-	
-	unload_wav(sfx_armas[pistola]);
-	unload_wav(sfx_armas[uzi]);
-	unload_wav(sfx_armas[minigun]);
-	unload_wav(sfx_armas[escopeta]);
-	unload_wav(sfx_armas[misil]);
-	unload_wav(sfx_armas[cohete]);
-	unload_wav(sfx_armas[lanzallamas]);
-	
+
+	unload_wav(sfx_armas[ARMA_PISTOLA]);
+	unload_wav(sfx_armas[ARMA_UZI]);
+	unload_wav(sfx_armas[ARMA_MINIGUN]);
+	unload_wav(sfx_armas[ARMA_ESCOPETA]);
+	unload_wav(sfx_armas[ARMA_MISIL]);
+	unload_wav(sfx_armas[ARMA_COHETE]);
+	unload_wav(sfx_armas[ARMA_LANZALLAMAS]);
+
 	unload_wav(sfx_granada);
-	
+
 	stop_scroll(0);
 	stop_scroll(1);
-	
+
 end
 
 process menu_pausa();
@@ -279,22 +279,22 @@ begin
 	alpha = 0;
 
 	ctype = c_scroll;
-	cnumber = c_0;	
-	
+	cnumber = c_0;
+
 	zombies_muertos = 0;
 	zombies_necesarios = objetivo;
-	
+
 	loop
 
 		if ( zombies_muertos >= zombies_necesarios )
 			alpha = 128;
 		end
-	
+
 		// compruebo colision con carla
 		if ( collision ( type carla ) and ( zombies_muertos >= zombies_necesarios ) )
 			objetivo_cumplido = true;
 		end
-		
+
 		/*
 		// paso de pantalla modo debug
 		while ( key(_backspace) )
@@ -303,7 +303,7 @@ begin
 			zombies_muertos = zombies_necesarios;
 		end
 		*/
-		
+
 		// paso de pantalla
 		if ( objetivo_cumplido )
 			partida.nivel++;
@@ -313,7 +313,7 @@ begin
 			nivel = partida.nivel;
 			signal ( father, S_KILL_TREE );
 		end
-		
+
 		frame;
 	end
 
