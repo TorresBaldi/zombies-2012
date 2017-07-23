@@ -4,5 +4,5 @@ An action/arcade game originally for the GP2X Wiz, participating in the [First B
 
 [![Build Status](https://travis-ci.org/TorresBaldi/zombies-2012.svg?branch=master)](https://travis-ci.org/TorresBaldi/zombies-2012)
 
-v1.3-rc1
+v1.3.1
 
