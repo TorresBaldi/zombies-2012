@@ -19,7 +19,7 @@ import "mod_wm";
 
 global
 
-	string game_version = "1.3-rc1";
+	string game_version = "1.3.1";
 
 end
 

@@ -1,8 +1,11 @@
 #!/bin/sh
 
+# build bgd-fpgtool
+./tools/bgd-fpgtool/build.sh
+
 # build fpg files
-# bgdc tools/bgd-fpgtool/fpgtools.prg
-# bgdi tools/bgd-fpgtool/fpgtools.dcb -c fpg-sources fpg 16
+bgdc tools/bgd-fpgtool/fpgtools.prg
+bgdi tools/bgd-fpgtool/fpgtools.dcb -c fpg-sources fpg 16
 
 
 # compile game in debug mode
