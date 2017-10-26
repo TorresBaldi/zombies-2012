@@ -1,10 +1,19 @@
 #!/bin/sh
+cd "${0%/*}"
+
+# add bennugd to system path
+BGD_RUNTIME=tools/bennugd-binaries/linux
+export PATH=$BGD_RUNTIME/bin:$PATH
+export LD_LIBRARY_PATH=$BGD_RUNTIME/lib:$LD_LIBRARY_PATH
+
 
 clean() {
 
 	echo "-- clean --"
 
 	rm -rf "releases/*"
+	mkdir "releases"
+
 }
 
 compile_assets() {

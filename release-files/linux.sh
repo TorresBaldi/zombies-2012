@@ -2,22 +2,12 @@
 
 # genero los paths
 CURDIR=$(dirname 0)
-BENNUBIN=$CURDIR/bgd-runtime/bin
-BENNULIB=$CURDIR/bgd-runtime/lib
-
-# copia de seguridad de paths
-PATH_BACKUP=$PATH
-LD_LIBRARY_PATH_BACKUP=$LD_LIBRARY_PATH
+BENNUBIN=$CURDIR
+BENNULIB=$CURDIR/lib
 
 # cambio los paths
 export PATH=$BENNUBIN:$PATH
 export LD_LIBRARY_PATH=$BENNULIB:$LD_LIBRARY_PATH
 
-#ejecuto el juego
-bgdi main.dcb
-
-# restauro paths anteriores
-#PATH=$PATH_BACKUP
-#LD_LIBRARY_PATH=$LD_LIBRARY_PATH_BACKUP
-
-
+# ejecuto el juego
+zombies2012
