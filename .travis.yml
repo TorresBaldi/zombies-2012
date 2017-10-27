@@ -8,10 +8,8 @@ env:
 
 before_install:
   - sudo apt-get update -qq
-
   # 32bit compatibility
   - sudo apt-get install -qq libc6:i386 libncurses5:i386 libstdc++6:i386
-
   # BennuGD dependencies
   - sudo apt-get install -qq zlib1g:i386 libssl1.0.0:i386 libsdl1.2debian:i386 libsdl-mixer1.2:i386
 
@@ -32,7 +30,8 @@ before_script:
   - sleep 3 # give xvfb some time to start
 
 script:
-  - ./build.sh
+  - make fpg
+  - make zombies2012.dcb
 
 before_deploy:
   - ./build-releases.sh $TRAVIS_TAG
